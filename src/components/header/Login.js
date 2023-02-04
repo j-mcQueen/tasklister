@@ -1,8 +1,11 @@
 export default function Login() {
     return (
-        <div>
-            <button>
-                
+        <div id="log">
+            <button
+                type="button"
+                id="login"
+            >
+                login
             </button>
         </div>
     )
