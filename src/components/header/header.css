@@ -4,3 +4,16 @@ header {
     width: 100%;
     padding: 20px;
 }
+
+#brgr:hover {
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 6px 0;
+    border-radius: 5px;
+    background-color: #d9d9d9;
+}
