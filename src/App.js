@@ -1,3 +1,4 @@
+import Header from './components/header/Header';
 import './App.css';
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
             If sidebar, text in modal changes to "Add Project"
             If arena, text in modal changes to "Add Task"
       */}
+      <Header/>
     </div>
   );
 }
