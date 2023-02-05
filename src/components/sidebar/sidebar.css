@@ -4,3 +4,9 @@
     border-right: 1px solid #FFDB5A;
     padding: 20px;
 }
+
+#categories, #projects {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
