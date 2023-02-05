@@ -1,11 +1,17 @@
 /* for desktops - media query needed for mobile */
+:root {
+	background-color: #4A4949;
+}
+
 .App {
   display: grid;
   grid-template-areas:
     "header header"
     "sidebar content"
     "footer footer";
-  grid-template-columns: 0.5fr 4fr;
+  grid-template-columns: 0.5fr 5fr;
+  grid-template-rows: 0.5fr 4fr 0.5fr;
+  height: 100vh;
 }
 
 header, footer {
