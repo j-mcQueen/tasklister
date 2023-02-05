@@ -8,5 +8,14 @@
 #categories, #projects {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+}
+
+#categories {
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid #FFDB5A;
+}
+
+#projects {
+    padding: 20px 0 0 0;
 }
