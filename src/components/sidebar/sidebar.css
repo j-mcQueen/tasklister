@@ -16,6 +16,16 @@
     border-bottom: 1px solid #FFDB5A;
 }
 
+.category {
+    opacity: 0.6;
+    transition: 0.2s ease;
+}
+
+.category:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
 #projects {
     padding: 20px 0 0 0;
 }
