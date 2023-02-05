@@ -1,3 +1,25 @@
+/* for desktops - media query needed for mobile */
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar content"
+    "footer footer";
+  grid-template-columns: 0.5fr 4fr;
+}
+
+header {
+  grid-area: header;
+}
+
+#sidebar {
+  grid-area: sidebar;
+}
+
+#arena {
+  grid-area: content;
+}
+
+#footer {
+  grid-area: footer;
 }
