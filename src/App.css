@@ -36,6 +36,17 @@ header, footer {
   padding: 10px;
 }
 
+#log, #plus {
+  background-color: #4d88fd;
+  color: #d9d9d9;
+  transition: 0.2s ease;
+}
+
+#log:hover, #plus:hover {
+  cursor: pointer;
+  background-color: #3b7cff;
+}
+
 header {
   grid-area: header;
 }
