@@ -1,6 +1,8 @@
+import "./sidebar.css";
+import "./categories.css";
+import "./projects.css";
 import Categories from "./Categories";
 import Projects from "./Projects";
-import "./sidebar.css";
 
 export default function Sidebar() {
     return (
