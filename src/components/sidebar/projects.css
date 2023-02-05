@@ -1,4 +1,16 @@
 .add {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+}
+
+#plus {
+    font-size: 20px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 1px #292828;
+}
+
+#plus:hover {
+    box-shadow: 0 0 3px 2px #292828;
 }
