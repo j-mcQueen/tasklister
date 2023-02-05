@@ -1,5 +1,7 @@
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
+import Arena from "./components/arena/Arena";
+import Footer from './components/footer/Footer';
 import './App.css';
 
 function App() {
@@ -32,17 +34,22 @@ function App() {
 
           Projects
             On click, display all projects with tasks in arena
+            First step is to get user input and appending it to the sidebar
+              You can worry about updating arena later
+
             Add reusable component for all task/ project additions
               On click, modal appears
                 Prompts user with a project/ task title and date input
+
                 Displays an add button and cancel button
                   Both have their own component
                   Add button click (assuming non null entry into input) does several things
                     Arena title changes to project name
                     Arena displays tasks connected to project name
                   Cancel button click removes modal
-            On add, project title (with link) appears in Sidebar
 
+            On add, project title (with link) appears in Sidebar
+      
         Arena
 
         Footer
@@ -55,6 +62,8 @@ function App() {
       */}
       <Header/>
       <Sidebar/>
+      <Arena/>
+      <Footer/>
     </div>
   );
 }
