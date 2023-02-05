@@ -8,6 +8,17 @@
   grid-template-columns: 0.5fr 4fr;
 }
 
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #393939;
+  z-index: 1;
+  width: 100%;
+  padding: 10px;
+}
+
 header {
   grid-area: header;
 }
@@ -20,6 +31,6 @@ header {
   grid-area: content;
 }
 
-#footer {
+footer {
   grid-area: footer;
 }
