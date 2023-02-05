@@ -1,6 +1,13 @@
 /* for desktops - media query needed for mobile */
+@font-face {
+  font-family: "Inter";
+  src: url(./fonts/Inter/static/Inter-Regular.ttf), format("ttf"),
+    url(./fonts/Inter/static/Inter-Bold.ttf), format("ttf");
+}
+
 :root {
 	background-color: #4A4949;
+  --font: "Inter";
 }
 
 .App {
@@ -12,6 +19,10 @@
   grid-template-columns: 0.5fr 5fr;
   grid-template-rows: 0.5fr 4fr 0.5fr;
   height: 100vh;
+}
+
+header, #sidebar, #arena, footer, button {
+  font-family: var(--font);
 }
 
 header, footer {
