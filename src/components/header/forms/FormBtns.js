@@ -1,6 +1,6 @@
-export default function Tabs() {
+export default function FormBtns() {
     return (
-        <div id="tabs">
+        <div id="btns">
             
         </div>
     )
