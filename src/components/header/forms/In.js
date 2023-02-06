@@ -1,7 +1,7 @@
+import Tabs from "./Tabs"
+
 export default function In() {
     return (
-        <div id="form">
-
-        </div>
+        <Tabs/>
     )
 }
