@@ -1,12 +1,6 @@
-import In from "./forms/In"
-
 export default function Login() {
     const openForms = () => {
-        return (
-            <div id="form">
-                <In/>
-            </div>
-        )
+    
     }
 
     return (
