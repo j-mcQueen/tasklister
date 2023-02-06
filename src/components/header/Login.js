@@ -1,9 +1,18 @@
 export default function Login() {
+    const openForms = () => {
+        return (
+            <div id="form">
+                
+            </div>
+        )
+    }
+
     return (
-        <div id="log">
+        <div id="wrap">
             <button
                 type="button"
-                id="login"
+                id="log"
+                onClick={openForms}
             >
                 login
             </button>
