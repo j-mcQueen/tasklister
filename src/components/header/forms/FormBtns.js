@@ -1,4 +1,9 @@
 export default function FormBtns() {
+    const handleClick = () => {
+        const modal = document.getElementById("modal");
+        modal.style.display = "none";
+    }
+
     return (
         <div id="btns">
             <button 
@@ -11,6 +16,7 @@ export default function FormBtns() {
             <button 
                 type="button"
                 id="cancel"
+                onClick={handleClick}
             >
                 cancel
             </button>
