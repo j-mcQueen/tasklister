@@ -1,14 +1,15 @@
 export default function Login() {
-    const openForms = () => {
-    
+    const handleClick = () => {
+        const modal = document.getElementById("modal");
+        modal.style.display = "block";
     }
-
+    
     return (
         <div id="wrap">
             <button
                 type="button"
                 id="log"
-                onClick={openForms}
+                onClick={handleClick}
             >
                 login
             </button>
