@@ -2,13 +2,9 @@ import { useState } from "react";
 
 export default function Burger() {
     // init must be dynamic based upon viewport
-    const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
     let init;
-    if (isDesktop) { 
-        init = true;
-    } else {
-        init = false;
-    };
+    const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
+    isDesktop ? init = true : init = false;
 
     const [isOpen, setIsOpen] = useState(init); // for burger click
     const click = () => {
