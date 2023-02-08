@@ -1,7 +1,7 @@
-export default function Button(type, ident, action) {
+export default function Button(val, type, ident, action) {
     return (
         <button>
-            
+            {val}
         </button>
     )
 }
