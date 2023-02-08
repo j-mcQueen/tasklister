@@ -1,26 +1,20 @@
 import { useState } from "react";
 
 export default function Burger() {
-    const sidebar = document.getElementById("sidebar");
-    const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
-
     // init must be dynamic based upon viewport
+    const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
     let init;
     if (isDesktop) { 
-        init = true 
+        init = true;
     } else {
         init = false;
     };
 
     const [isOpen, setIsOpen] = useState(init); // for burger click
     const click = () => {
+        const sidebar = document.getElementById("sidebar");
         setIsOpen(!isOpen);
-        if (isOpen) {
-            sidebar.style.display = "none";
-        } else {
-            sidebar.style.display = "block";
-        }
-        // better to use a ternary here if there is nothing else to add
+        return (isOpen) ? sidebar.style.display = "none" : sidebar.style.display = "block";
             // would like arena to expand and contract when sidebar is closed and open respectively
     }
 
