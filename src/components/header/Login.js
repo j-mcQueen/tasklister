@@ -1,9 +1,17 @@
-export default function Login() {
+export default function Login({cur, next}) {
     const handleClick = () => {
         const modal = document.getElementById("modal");
-        modal.style.display = "block";
+        const login = document.getElementById("login");
+        if (!cur) {
+            modal.style.display = "block";
+            login.setAttribute("disabled", "disabled");
+        } else {
+            modal.style.display = "none";
+            login.removeAttribute("disabled");
+        }
+        next(!cur);
     }
-    
+
     return (
         <div id="wrap">
             <button
