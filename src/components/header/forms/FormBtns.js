@@ -1,6 +1,6 @@
 import toggleFormModal from "../toggleFormModal";
 
-export default function FormBtns(current, updater) {
+export default function FormBtns({current, updater}) {
     return (
         <div id="btns">
             <button 
