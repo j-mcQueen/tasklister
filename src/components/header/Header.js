@@ -12,12 +12,12 @@ export default function Header() {
         <header>
             <Burger/>
             <Login
-                cur={isActive}
-                next={setIsActive}
+                current={isActive}
+                updater={setIsActive}
             />
             <Modal
-                cur={isActive}
-                next={setIsActive}
+                current={isActive}
+                updater={setIsActive}
             />
         </header>
     )
