@@ -1,9 +1,6 @@
-export default function FormBtns() {
-    const handleClick = () => {
-        const modal = document.getElementById("modal");
-        modal.style.display = "none";
-    }
+import toggleFormModal from "../toggleFormModal";
 
+export default function FormBtns(current, updater) {
     return (
         <div id="btns">
             <button 
@@ -16,7 +13,7 @@ export default function FormBtns() {
             <button 
                 type="button"
                 id="cancel"
-                onClick={handleClick}
+                onClick={() => toggleFormModal(current, updater)}
             >
                 cancel
             </button>
