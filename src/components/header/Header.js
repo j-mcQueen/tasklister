@@ -15,10 +15,16 @@ export default function Header() {
                 current={isActive}
                 updater={setIsActive}
             />
-            <Modal
-                current={isActive}
-                updater={setIsActive}
-            />
+
+            {
+                isActive ? 
+                    <Modal
+                    current={isActive}
+                    updater={setIsActive}
+                    /> 
+                    :
+                    <></> // null in JSX
+            }
         </header>
     )
 }

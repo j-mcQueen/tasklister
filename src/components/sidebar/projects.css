@@ -1,12 +1,13 @@
 .add {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    gap: 20px;
+    margin-left: 20px;
 }
 
 .plus {
-    font-size: 20px;
-    padding: 3px 8px;
+    font-size: 14px;
+    padding: 7px 15px;
     box-shadow: 0 0 3px 1px #292828;
 }
 

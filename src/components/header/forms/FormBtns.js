@@ -1,5 +1,3 @@
-import toggleFormModal from "../toggleFormModal";
-
 export default function FormBtns({current, updater}) {
     return (
         <div id="btns">
@@ -13,7 +11,7 @@ export default function FormBtns({current, updater}) {
             <button 
                 type="button"
                 id="cancel"
-                onClick={() => toggleFormModal(current, updater)}
+                onClick={() => updater(!current)}
             >
                 cancel
             </button>
