@@ -6,11 +6,15 @@ import Login from "./Login";
 import Modal from "./forms/Modal";
 import { useState } from "react";
 
-export default function Header() {
+export default function Header({prev, next}) {
     const [isActive, setIsActive] = useState(false);
     return (
         <header>
-            <Burger/>
+            <Burger
+                prev={prev}
+                next={next}
+            />
+
             <Login
                 current={isActive}
                 updater={setIsActive}

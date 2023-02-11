@@ -3,8 +3,13 @@ import Sidebar from './components/sidebar/Sidebar';
 import Arena from "./components/arena/Arena";
 import Footer from './components/footer/Footer';
 import './App.css';
+import { useState } from "react";
+
 
 function App() {
+  const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
+  const [isOpen, setIsOpen] = useState(isDesktop);
+
   return (
     <div className="App">
       {/* 
@@ -60,8 +65,14 @@ function App() {
             If sidebar, text in modal changes to "Add Project"
             If arena, text in modal changes to "Add Task"
       */}
-      <Header/>
-      <Sidebar/>
+        <Header
+          prev={isOpen}
+          next={setIsOpen}
+        />
+      {
+        isOpen ?
+          <Sidebar/> : <></>
+      }
       <Arena/>
       <Footer/>
     </div>
