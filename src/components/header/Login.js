@@ -4,6 +4,7 @@ export default function Login({current, updater}) {
             <button
                 type="button"
                 id="log"
+                disabled={current}
                 onClick={() => updater(!current)}
             >
                 login

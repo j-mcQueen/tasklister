@@ -19,8 +19,8 @@ export default function Header() {
             {
                 isActive ? 
                     <Modal
-                    current={isActive}
-                    updater={setIsActive}
+                        current={isActive}
+                        updater={setIsActive}
                     /> 
                     :
                     <></> // null in JSX
