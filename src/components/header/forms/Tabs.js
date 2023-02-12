@@ -1,9 +1,9 @@
-export default function Tabs() {
+export default function Tabs({init, setter}) {
     return (
         <div id="tabs">
-            <span>login</span>
+            <span onClick={() => setter(0)}>login</span>
             <span>|</span>
-            <span>sign up</span>
+            <span onClick={() => setter(1)}>sign up</span>
         </div>
     )
 }

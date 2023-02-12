@@ -1,23 +1,29 @@
 import Tabs from "./Tabs"
 import FormBtns from "./FormBtns"
 import "./form.css";
+import { useState } from "react";
+import LoginInputs from "./LoginInputs";
+import SignUpInputs from "./SignUpInputs";
 
-export default function Modal({current, updater}) {
-    // -- OBJECTIVE: Display login or signup inputs based on active tab
-        // -- RUBBER DUCK
-            // By default, the login form is the active tab. 
+export default function Modal({current, updater}) {        
+    const [inputs, setInputs] = useState(0);
+    // TODO make active span yellow
     return (
         <div id="modal">
-            <Tabs/>
-            <div>
-                {/* 
-                    could use a conditional here to determine which tab is active and therefore which set of inputs to render
-                */}
-            </div>
+            <Tabs
+                init={inputs}
+                setter={setInputs}
+            />
+
+            {
+                inputs === 0 ? <LoginInputs/> : <SignUpInputs/>
+            }
+
             <FormBtns
                 current={current}
                 updater={updater}
             />
+            {/* TODO FormBtns will likely need to be inside the form itself so the form can submit login/ signup information to the server */}
         </div>
     )
 }
