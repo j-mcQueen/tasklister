@@ -36,7 +36,7 @@ header, footer {
   padding: 10px;
 }
 
-#log, .plus {
+#log {
   background-color: #4d88fd;
   color: #d9d9d9;
   border: none;
@@ -44,7 +44,23 @@ header, footer {
   transition: 0.2s ease;
 }
 
-#log:hover, .plus:hover {
+.plus {
+  font-size: 20px;
+  padding: 7px 14px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px #424242 inset;
+  color: #292828;
+  background: none;
+  transition: 0.3s ease;
+}
+
+.plus:hover {
+  background-color: #656565;
+  cursor: pointer;
+}
+
+#log:hover {
   cursor: pointer;
   background-color: #3b7cff;
 }
