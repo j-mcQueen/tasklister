@@ -1,4 +1,4 @@
-export default function NewProject() {
+export default function NewProject({prevDisplay, updateDisplay}) {
     return (
         <form>
             <fieldset>
@@ -10,15 +10,14 @@ export default function NewProject() {
                 <button
                     type="button"
                     id="insert"
-                    onClick=""
                 >
                     add
                 </button>
                 
                 <button
                     type="button"
-                    id=""
-                    onClick=""
+                    className="cancel"
+                    onClick={() => updateDisplay(!prevDisplay)}
                 >
                     cancel
                 </button>

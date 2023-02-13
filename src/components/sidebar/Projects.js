@@ -2,36 +2,43 @@ import { useState } from "react";
 import NewProject from "./NewProject";
 
 export default function Projects() {
-    // --OBJECTIVE: Render a form when the user clicks the form button
+    // --OBJECTIVE: Close the new projects form when a user presses cancel
         // --RUBBER DUCK
-            // When a user clicks the plus button, a form containing a label, a text input, and two buttons (add, cancel) will appear. I would like to avoid element creation and selection using pure JS, and would rather do the same thing in React. Currently, I am working through the best way to go about this. Perhaps calling a component on click of the plus button?
+            // 
         
         // --PLAN
-            // The default state of the new project form will be false, since we don't want it to appear on load
-                // Therefore, getting it to display should work logically the same as the login button click showing the modal
-                    // parent component sets initial state
-                    // Plus button has click event which updates state
-                    // state is checked for when rendering the form, 
-                        // returns the component for the form if true, returns an empty element if false
+            // Functionally works the same as the clicking of the cancel button on the modal 
+                // state is updated using setIsDisplayed when cancel button is clicked
+                    // state needs to be passed to the form that is generated
+            // When a form is added, the new form needs an initial state of its own so that it can be closed
+                // problem point - cancel button will only control the newproject from state. So, when the form is active, the plus button is disabled. When the form closes by an internal action, how will 
+
     const [displayed, setIsDisplayed] = useState(false);
     return (
         <div id="projects">
             <h2>Projects</h2>
             <ul id="projects-list"></ul>
 
-            {
-                displayed ? <NewProject/> : <></>
-            }
-
             <div className="add">
                 <button 
                     type="button"
                     className="plus"
+                    disabled={displayed}
                     onClick={() => setIsDisplayed(!displayed)}
                 >
                     +
                 </button>
             </div>
+
+            {
+                displayed ? 
+                    <NewProject
+                        prevDisplay={displayed}
+                        updateDisplay={setIsDisplayed}
+                    /> 
+                    : 
+                    <></>
+            }
         </div>
     )
 }
