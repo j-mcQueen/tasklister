@@ -1,4 +1,4 @@
-export default function Tabs({init, setter}) {
+export default function Tabs({setter}) {
     return (
         <div id="tabs">
             <span onClick={() => setter(0)}>login</span>

@@ -11,7 +11,6 @@ export default function Modal({current, updater}) {
     return (
         <div id="modal">
             <Tabs
-                init={inputs}
                 setter={setInputs}
             />
 

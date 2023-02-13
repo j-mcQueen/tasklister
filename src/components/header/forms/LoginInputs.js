@@ -1,15 +1,15 @@
 export default function LoginInputs() {
     return(
         <form>
-            <div>
+            <fieldset>
                 <label htmlFor="uname">username</label>
                 <input type="text" id="uname"/>
-            </div>
+            </fieldset>
 
-            <div>
+            <fieldset>
                 <label htmlFor="pwd">password</label>
-                <input type="text" id="pwd"/>
-            </div>
+                <input type="password" id="pwd"/>
+            </fieldset>
         </form>
     )
 }

@@ -1,25 +1,40 @@
 export default function SignUpInputs() {
     return (
         <form>
-            <fieldset>
-                <label htmlFor="fname">First Name</label>
-                <input type="text" id="fname"/>
+            <fieldset id="names">
+                <div>
+                    <label htmlFor="fname">first name</label>
+                    <input type="text" id="fname"/>
+                </div>
 
-                <label htmlFor="lname">Last Name</label>
-                <input type="text" id="lname"/>
+                <div>
+                    <label htmlFor="lname">last name</label>
+                    <input type="text" id="lname"/>
+                </div>
             </fieldset>
 
-            <div>
-                <label htmlFor="uname">username</label>
-                <input type="text" id="uname"/>
-            </div>
+            <fieldset id="user">
+                <div>
+                    <label htmlFor="uname">username</label>
+                    <input type="text" id="uname"/>
+                </div>
 
-            <fieldset>
-                <label htmlFor="pwd">password</label>
-                <input type="text" id="pwd"/>
+                <div>
+                    <label htmlFor="email">email</label>
+                    <input type="email" id="email"/>
+                </div>
+            </fieldset>
 
-                <label htmlFor="conf-pwd">confirm password</label>
-                <input type="text" id="conf-pwd"/>
+            <fieldset id="security">
+                <div>
+                    <label htmlFor="pwd">password</label>
+                    <input type="password" id="pwd"/>
+                </div>
+
+                <div>
+                    <label htmlFor="conf-pwd">confirm</label>
+                    <input type="password" id="conf-pwd"/>
+                </div>
             </fieldset>
         </form>
     )
