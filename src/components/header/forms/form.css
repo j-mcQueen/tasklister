@@ -13,12 +13,20 @@ span:hover {
     cursor: pointer;
 }
 
+.hoverable {
+    transition: 0.3s ease;
+}
+
+.hoverable:hover {
+    color: #FFDB5A;
+}
+
 #tabs {
     display: flex;
     justify-content: space-around;
 }
 
-form {
+#modal form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,19 +35,19 @@ form {
     gap: 20px;
 }
 
-fieldset {
+#modal fieldset {
     display: flex;
     gap: 20px;
 }
 
 
-label {
+#modal label {
     display: block;
     color: var(--offwhite);
     padding: 5px 0;
 }
 
-input {
+#modal input {
     color: var(--offwhite);
     background-color: #393939;
     appearance: none;
@@ -48,7 +56,7 @@ input {
     height: 25px;
 }
 
-input:focus {
+#modal input:focus {
     outline: none;
     border: 1px solid #FFDB5A;
 }
