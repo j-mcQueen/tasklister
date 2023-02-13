@@ -10,7 +10,7 @@ export default function FormBtns({current, updater}) {
 
             <button 
                 type="button"
-                id="cancel"
+                className="cancel"
                 onClick={() => updater(!current)}
             >
                 cancel

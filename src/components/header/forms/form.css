@@ -67,11 +67,11 @@ span:hover {
     gap: 20px;
 }
 
-#cont, #cancel, span {
+#cont, span {
     color: var(--offwhite);
 }
 
-#cont, #cancel {
+#cont {
     box-shadow: 0 0 3px 3px #292828;
     padding: 7px 15px;
     border: none;
@@ -80,7 +80,7 @@ span:hover {
     font-size: 14px;
 }
 
-#cont:hover, #cancel:hover {
+#cont:hover {
     cursor: pointer;
     box-shadow: 0 0 3px 5px #292828;
 }
@@ -89,6 +89,6 @@ span:hover {
     background-color: #3b7cff;
 }
 
-#cancel {
+.cancel {
     background-color: #FD4D4D;
 }
