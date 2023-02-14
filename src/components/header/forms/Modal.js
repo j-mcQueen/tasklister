@@ -9,7 +9,7 @@ export default function Modal({current, updater}) {
     const [inputs, setInputs] = useState(0);
     // TODO make active span yellow
     return (
-        <div id="modal">
+        <div id="modal" className="modal">
             <Tabs
                 setter={setInputs}
             />

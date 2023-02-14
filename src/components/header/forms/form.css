@@ -1,12 +1,6 @@
 #modal {
-    display: block;
-    position: absolute;
     top: 25%;
-    background-color: #393939;
     --offwhite: #d9d9d9;
-    box-shadow: 0 0 2px 3px #2c2b2b inset;
-    padding: 30px;
-    border-radius: 20px;
 }
 
 #modal span:hover {
@@ -31,34 +25,7 @@
     flex-direction: column;
     align-items: center;
     padding: 40px 30px;
-    font-size: 14px;
     gap: 20px;
-}
-
-#modal fieldset {
-    display: flex;
-    gap: 20px;
-}
-
-
-#modal label {
-    display: block;
-    color: var(--offwhite);
-    padding: 5px 0;
-}
-
-#modal input {
-    color: var(--offwhite);
-    background-color: #393939;
-    appearance: none;
-    border: 1px solid var(--offwhite);
-    border-radius: 5px;
-    height: 25px;
-}
-
-#modal input:focus {
-    outline: none;
-    border: 1px solid #FFDB5A;
 }
 
 #btns {

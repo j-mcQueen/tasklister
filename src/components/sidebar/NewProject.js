@@ -1,8 +1,14 @@
 export default function NewProject({prevDisplay, updateDisplay}) {
+        // --OBJECTIVE: Insert new project into list
+        // --RUBBER DUCK
+            //
+        
+        // --PLAN
+            // 
     return (
-        <form>
+        <form className="modal">
             <fieldset>
-                <label htmlFor=""></label>
+                <label htmlFor="">title</label>
                 <input type="text"/>
             </fieldset>
 
