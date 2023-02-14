@@ -7,11 +7,7 @@ export default function Projects() {
             // 
         
         // --PLAN
-            // Functionally works the same as the clicking of the cancel button on the modal 
-                // state is updated using setIsDisplayed when cancel button is clicked
-                    // state needs to be passed to the form that is generated
-            // When a form is added, the new form needs an initial state of its own so that it can be closed
-                // problem point - cancel button will only control the newproject from state. So, when the form is active, the plus button is disabled. When the form closes by an internal action, how will 
+            //  can you believe the progress that im making?? this is superb work so far you are learning so much so fast!
 
     const [displayed, setIsDisplayed] = useState(false);
     return (
@@ -28,6 +24,8 @@ export default function Projects() {
                 >
                     +
                 </button>
+
+                <span>Add Project</span>
             </div>
 
             {

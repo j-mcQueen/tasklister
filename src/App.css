@@ -44,6 +44,10 @@ header, footer {
   transition: 0.2s ease;
 }
 
+.add span {
+  color: #f9f9f9;
+}
+
 .plus {
   font-size: 20px;
   padding: 7px 14px;

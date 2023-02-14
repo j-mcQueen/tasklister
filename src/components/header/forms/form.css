@@ -9,7 +9,7 @@
     border-radius: 20px;
 }
 
-span:hover {
+#modal span:hover {
     cursor: pointer;
 }
 
