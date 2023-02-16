@@ -15,3 +15,27 @@
     padding: 30px;
     border-radius: 20px;
 }
+
+#projects-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 5px;
+}
+
+#projects-list li:hover {
+    background-color: #7d7d7d;
+}
+
+.remove {
+    color: #d9d9d9;
+    fill: currentColor;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.remove:hover {
+    background-color: #7d7d7d;
+    cursor: pointer;
+}

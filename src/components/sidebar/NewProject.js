@@ -1,21 +1,28 @@
-export default function NewProject({prevDisplay, updateDisplay}) {
-        // --OBJECTIVE: Insert new project into list
-        // --RUBBER DUCK
-            //
-        
-        // --PLAN
-            // 
+export default function NewProject({name, setName, projectList, addItem, prevDisplay, updateDisplay}) {
     return (
         <form className="modal">
             <fieldset>
                 <label htmlFor="">title</label>
-                <input type="text"/>
+                <input 
+                    type="text" 
+                    onChange={e => 
+                        setName(e.target.value)
+                    }
+                    required/>
             </fieldset>
 
             <fieldset>
                 <button
-                    type="button"
+                    type="submit"
                     id="insert"
+                    onClick={() => {
+                        setName("");
+                        addItem([
+                            ...projectList,
+                            { name, }
+                        ]);
+                        updateDisplay(!prevDisplay);
+                    }}
                 >
                     add
                 </button>
