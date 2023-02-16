@@ -16,6 +16,13 @@
     border-radius: 20px;
 }
 
+.plus svg {
+    color: #d9d9d9;
+    fill: currentColor;
+    width: 16px;
+    height: 16px;
+}
+
 #projects-list li {
     display: flex;
     justify-content: space-between;
@@ -33,6 +40,8 @@
     fill: currentColor;
     padding: 5px;
     border-radius: 5px;
+    width: 18px;
+    height: 18px;
 }
 
 .remove:hover {

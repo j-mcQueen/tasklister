@@ -1,3 +1,4 @@
+let nextId = 0;
 export default function NewProject({name, setName, projectList, addItem, prevDisplay, updateDisplay}) {
     return (
         <form className="modal">
@@ -19,7 +20,7 @@ export default function NewProject({name, setName, projectList, addItem, prevDis
                         setName("");
                         addItem([
                             ...projectList,
-                            { name, }
+                            { id: nextId++, name, }
                         ]);
                         updateDisplay(!prevDisplay);
                     }}
