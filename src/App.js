@@ -10,6 +10,7 @@ function App() {
   const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
   const [isOpen, setIsOpen] = useState(isDesktop);
   const [isActive, setIsActive] = useState(false);
+  const [category, setCategory] = useState("All");
 
   return (
     <div className="App">
@@ -62,9 +63,18 @@ function App() {
         setIsOpen={setIsOpen}
       />
 
-      { isOpen ? <Sidebar/> : <></> }
+      { 
+        isOpen 
+        ? 
+        <Sidebar
+          setCategory={setCategory}
+        /> 
+        : <></> 
+      }
 
-      <Arena/>
+      <Arena
+          category={category}
+      />
       <Footer/>
     </div>
   );
