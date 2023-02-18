@@ -4,27 +4,25 @@ import "./login.css";
 import Burger from "./Burger"
 import Login from "./Login";
 import Modal from "./forms/Modal";
-import { useState } from "react";
 
-export default function Header({prev, next}) {
-    const [isActive, setIsActive] = useState(false);
+export default function Header({isActive, setIsActive, isOpen, setIsOpen}) {
     return (
         <header>
             <Burger
-                prev={prev}
-                next={next}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
             />
 
             <Login
-                current={isActive}
-                updater={setIsActive}
+                isActive={isActive}
+                setIsActive={setIsActive}
             />
 
             {
                 isActive ? 
                     <Modal
-                        current={isActive}
-                        updater={setIsActive}
+                        isActive={isActive}
+                        setIsActive={setIsActive}
                     /> 
                     :
                     <></>

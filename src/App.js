@@ -9,6 +9,7 @@ import { useState } from "react";
 function App() {
   const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
   const [isOpen, setIsOpen] = useState(isDesktop);
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <div className="App">
@@ -54,14 +55,15 @@ function App() {
             If sidebar, text in modal changes to "Add Project"
             If arena, text in modal changes to "Add Task"
       */}
-        <Header
-          prev={isOpen}
-          next={setIsOpen}
-        />
-      {
-        isOpen ?
-          <Sidebar/> : <></>
-      }
+      <Header
+        isActive={isActive}
+        setIsActive={setIsActive}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
+
+      { isOpen ? <Sidebar/> : <></> }
+
       <Arena/>
       <Footer/>
     </div>

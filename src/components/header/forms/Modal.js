@@ -5,15 +5,15 @@ import { useState } from "react";
 import LoginInputs from "./LoginInputs";
 import SignUpInputs from "./SignUpInputs";
 
-export default function Modal({current, updater}) {        
+export default function Modal({isActive, setIsActive}) {        
     const [inputs, setInputs] = useState(0);
     // TODO make active span yellow
     return (
         <div id="modal" className="modal">
             <Tabs
-                current={current}
+                isActive={isActive}
                 inputs={inputs}
-                setter={setInputs}
+                setInputs={setInputs}
             />
 
             {
@@ -21,8 +21,8 @@ export default function Modal({current, updater}) {
             }
 
             <FormBtns
-                current={current}
-                updater={updater}
+                isActive={isActive}
+                setIsActive={setIsActive}
             />
             {/* TODO FormBtns will likely need to be inside the form itself so the form can submit login/ signup information to the server */}
         </div>

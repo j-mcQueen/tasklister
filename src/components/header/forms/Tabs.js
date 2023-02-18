@@ -1,8 +1,8 @@
-export default function Tabs({setter, current, inputs}) {
+export default function Tabs({inputs, setInputs}) {
     return (
         <div id="tabs">
             <span
-                onClick={() => setter(0)}
+                onClick={() => setInputs(0)}
                 style={{
                     color: inputs === 0 ? "#ffdb5a" : "#d9d9d9"
                 }}>
@@ -12,7 +12,7 @@ export default function Tabs({setter, current, inputs}) {
             <span>|</span>
 
             <span
-                onClick={() => setter(1)}
+                onClick={() => setInputs(1)}
                 style={{
                     color: inputs === 1 ? "#ffdb5a" : "#d9d9d9"
                 }}

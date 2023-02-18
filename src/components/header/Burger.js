@@ -1,6 +1,6 @@
-export default function Burger({prev, next}) {
+export default function Burger({isOpen, setIsOpen}) {
     return (
-        <div id ="brgr" onClick={() => next(!prev)}>
+        <div id ="brgr" onClick={() => setIsOpen(!isOpen)}>
             <div className="bar"></div>
             <div className="bar"></div>
             <div className="bar"></div>

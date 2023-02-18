@@ -1,11 +1,11 @@
-export default function Login({current, updater}) {
+export default function Login({isActive, setIsActive}) {
     return (
         <div id="wrap">
             <button
                 type="button"
                 id="log"
-                disabled={current}
-                onClick={() => updater(!current)}
+                disabled={isActive}
+                onClick={() => setIsActive(!isActive)}
             >
                 login
             </button>

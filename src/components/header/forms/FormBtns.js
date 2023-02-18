@@ -1,4 +1,4 @@
-export default function FormBtns({current, updater}) {
+export default function FormBtns({isActive, setIsActive}) {
     return (
         <div id="btns">
             <button 
@@ -11,7 +11,7 @@ export default function FormBtns({current, updater}) {
             <button 
                 type="button"
                 className="cancel"
-                onClick={() => updater(!current)}
+                onClick={() => setIsActive(!isActive)}
             >
                 cancel
             </button>
