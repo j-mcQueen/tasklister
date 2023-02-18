@@ -41,6 +41,12 @@ header, footer {
   padding: 10px;
 }
 
+input {
+  font-family: "Inter";
+  font-size: 16px;
+  letter-spacing: -0.75px;
+}
+
 .modal {
   display: block;
   position: absolute;

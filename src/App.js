@@ -12,15 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* 
-        Header
-          Burger
-            On click, burger will hide/ show the sidebar depending on state
-          
-          Login
-            On click, modal pops up prompting user to enter their email address & password
-              Provides link to sign up -> would require another component
-              At first, create modal component but leave links dead -> back end required here to log users in/ sign them up
+      {/*
 
         Sidebar
           Potential reusability of components here - all clicks do the same thing -> change title in arena to whatever you clicked on, show tasks
@@ -56,9 +48,6 @@ function App() {
             On add, project title (with link) appears in Sidebar
       
         Arena
-
-        Footer
-          only contains a linked github icon
         
         All add buttons on the page do the same thing
           On click, check identifier which indicates if project or task add click

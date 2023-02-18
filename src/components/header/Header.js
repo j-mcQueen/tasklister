@@ -27,7 +27,7 @@ export default function Header({prev, next}) {
                         updater={setIsActive}
                     /> 
                     :
-                    <></> // null in JSX
+                    <></>
             }
         </header>
     )
