@@ -1,8 +1,13 @@
+import { useState } from "react";
 import NewTask from "./NewTask"
 
 export default function Arena({ category, task, setTask }) {
-    // instead of just alternating the title, couldnt we alternate the entire container?
-    // why would we need to? all projects have the same elements, its just the tasks that change (the data should be contained inside an object)
+    // set state for title, due date, priority, and taskArray
+    const [taskTitle, setTaskTitle] = useState("");
+    const [taskDate, setTaskDate] = useState("");
+    const [taskPrio, setTaskPrio] = useState("");
+    const [arenaTask, setArenaTask] = useState([]);
+    // pass state props to NewTask
 
     return (
         <div id="arena">
@@ -28,12 +33,46 @@ export default function Arena({ category, task, setTask }) {
                 </button>
             </div>
 
+            <div>
+                <ul id="task-list">
+                    {arenaTask.map(task => (
+                        <li key={task.id}>
+                            <div className="task-entry">
+                                <div className={task.prio}>
+                                    <p>{task.title}</p>
+                                    <p>{task.date}</p>
+                                </div>
+
+                                <div>
+                                    <div>bin</div>
+                                    <div>complete</div>
+                                    <div>edit</div>
+                                </div>
+                            </div>
+                        </li>
+                    )
+                    )}
+                </ul>
+            </div>
+
             {
                 task
                 ?
                 <NewTask
                     task={task}
                     setTask={setTask}
+
+                    taskTitle={taskTitle}
+                    setTaskTitle={setTaskTitle}
+
+                    taskDate={taskDate}
+                    setTaskDate={setTaskDate}
+
+                    taskPrio={taskPrio}
+                    setTaskPrio={setTaskPrio}
+
+                    arenaTask={arenaTask}
+                    setArenaTask={setArenaTask}
                 />
                 :
                 <></>

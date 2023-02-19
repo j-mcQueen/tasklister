@@ -7,3 +7,4 @@
 - Project list does not persist if burger button is clicked to hide sidebar
 - Focus modals when they are active, allow users to drop focus of the modal by clicking elsewhere
 - Reduce sizing of header elements
+- Prevent the user submitting add task form when there are empty required fields
