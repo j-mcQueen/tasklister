@@ -12,7 +12,7 @@ export default function NewProject({name, setName, projectList, addItem, prevDis
                     required/>
             </fieldset>
 
-            <fieldset>
+            <fieldset className="project-btns">
                 <button
                     type="submit"
                     className="confirm"

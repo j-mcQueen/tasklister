@@ -2,6 +2,7 @@
 
 ## TODO
 
+- RESPONSIVE DESIGN
 - Blur background whenever a modal is opened
 - Put FormBtns inside form to enable login/ signup info submit to server
 - Project list does not persist if burger button is clicked to hide sidebar

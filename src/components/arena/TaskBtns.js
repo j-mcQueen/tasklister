@@ -1,7 +1,7 @@
 let nextId = 0;
 export default function TaskBtns({...props}) {
     return (
-        <div>
+        <div className="project-btns">
             <button
                 className="confirm"
                 type="submit"
