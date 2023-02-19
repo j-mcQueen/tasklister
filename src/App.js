@@ -10,6 +10,7 @@ function App() {
   const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
   const [isOpen, setIsOpen] = useState(isDesktop);
   const [isActive, setIsActive] = useState(false);
+  const [task, setTask] = useState(false);
   const [category, setCategory] = useState("All");
 
   return (
@@ -67,13 +68,17 @@ function App() {
         isOpen 
         ? 
         <Sidebar
+          isActive={isActive}
+          setIsActive={setIsActive}
           setCategory={setCategory}
         /> 
         : <></> 
       }
 
       <Arena
-          category={category}
+        task={task}
+        setTask={setTask}
+        category={category}
       />
       <Footer/>
     </div>

@@ -2,16 +2,10 @@ import { useState } from "react";
 import NewProject from "./NewProject";
 
 export default function Projects() {
-        // --OBJECTIVE: Insert new project into list
-            // --RUBBER DUCK
-                // 
-            
-            // --PLAN
-                //
-
     const [displayed, setIsDisplayed] = useState(false); // modal toggle
     const [name, setName] = useState("");
     const [projects, setProjects] = useState([]);
+    
     return (
         <div id="projects">
             <h2>Projects</h2>
