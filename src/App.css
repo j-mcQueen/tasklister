@@ -114,28 +114,45 @@ form {
   cursor: pointer;
 }
 
-#log:hover {
+button {
+  background-color: inherit;
+  color: var(--lighter);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.4s ease;
+  letter-spacing: -0.75px;
+  box-shadow: 0px 2px 2px #1f1f1f;
+}
+
+button:hover {
   cursor: pointer;
+}
+
+.continue {
+  border: 1px solid #3b7cff;
+}
+
+.continue:hover {
   background-color: #3b7cff;
 }
 
+.confirm {
+  border: 1px solid green;
+}
+
+.confirm:hover {
+  background-color: green;
+}
+
 .cancel {
-  box-shadow: 0 0 3px 3px #292828;
-  padding: 7px 15px;
-  border: none;
-  border-radius: 5px;
-  transition: 0.2s ease;
-  font-size: 14px;
+  border: 1px solid #9d1313;
 }
 
 .cancel:hover {
-  cursor: pointer;
-  box-shadow: 0 0 3px 5px #292828;
-}
-
-.cancel {
-  color: var(--lighter);
-  background-color: #FD4D4D;
+  background-color: #9d1313;
 }
 
 header {

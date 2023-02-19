@@ -6,7 +6,7 @@ export default function Tabs({inputs, setInputs}) {
                 style={{
                     color: inputs === 0 ? "#ffdb5a" : "#d9d9d9"
                 }}>
-                    login
+                    Login
             </span>
 
             <span>|</span>
@@ -17,7 +17,7 @@ export default function Tabs({inputs, setInputs}) {
                     color: inputs === 1 ? "#ffdb5a" : "#d9d9d9"
                 }}
                 >
-                    sign up
+                    Sign Up
             </span>
         </div>
     )

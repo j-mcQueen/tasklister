@@ -2,7 +2,8 @@ let nextId = 0;
 export default function TaskBtns({...props}) {
     return (
         <div>
-            <button 
+            <button
+                className="confirm"
                 type="submit"
                 onClick={() => {
                     props.setTaskTitle("");
@@ -23,7 +24,8 @@ export default function TaskBtns({...props}) {
                 Confirm
             </button>
 
-            <button 
+            <button
+                className="cancel"
                 type="button" 
                 onClick={() => props.setTask(!props.task)}
             >

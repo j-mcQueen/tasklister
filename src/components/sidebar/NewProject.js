@@ -15,7 +15,7 @@ export default function NewProject({name, setName, projectList, addItem, prevDis
             <fieldset>
                 <button
                     type="submit"
-                    id="insert"
+                    className="confirm"
                     onClick={() => {
                         setName("");
                         addItem([
@@ -25,7 +25,7 @@ export default function NewProject({name, setName, projectList, addItem, prevDis
                         updateDisplay(!prevDisplay);
                     }}
                 >
-                    add
+                    Add
                 </button>
                 
                 <button
@@ -33,7 +33,7 @@ export default function NewProject({name, setName, projectList, addItem, prevDis
                     className="cancel"
                     onClick={() => updateDisplay(!prevDisplay)}
                 >
-                    cancel
+                    Cancel
                 </button>
             </fieldset>
         </form>

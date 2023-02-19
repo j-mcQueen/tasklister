@@ -3,9 +3,9 @@ export default function FormBtns({isActive, setIsActive}) {
         <div id="btns">
             <button 
                 type="button"
-                id="cont"
+                className="continue"
             >
-                continue
+                Continue
             </button>
 
             <button 
@@ -13,7 +13,7 @@ export default function FormBtns({isActive, setIsActive}) {
                 className="cancel"
                 onClick={() => setIsActive(!isActive)}
             >
-                cancel
+                Cancel
             </button>
         </div>
     )

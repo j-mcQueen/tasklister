@@ -3,11 +3,11 @@ export default function Login({isActive, setIsActive}) {
         <div id="wrap">
             <button
                 type="button"
-                id="log"
+                className="continue"
                 disabled={isActive}
                 onClick={() => setIsActive(!isActive)}
             >
-                login
+                Login
             </button>
         </div>
     )
