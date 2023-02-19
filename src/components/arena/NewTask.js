@@ -29,12 +29,14 @@ export default function NewTask({...props}) {
             <select 
                 name="prio"
                 id="prio"
+                value={props.taskPrio}
                 onChange={e => 
                     props.setTaskPrio(e.target.value)
-                }>
-                <option value="High">High</option>
-                <option value="Medium">Medium</option>
-                <option value="Low">Low</option>
+                }
+                >
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
             </select>
 
             <TaskBtns

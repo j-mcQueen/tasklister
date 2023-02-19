@@ -1,14 +1,12 @@
+import "./arena.css";
 import { useState } from "react";
 import NewTask from "./NewTask"
 
 export default function Arena({ category, task, setTask }) {
-    // set state for title, due date, priority, and taskArray
     const [taskTitle, setTaskTitle] = useState("");
     const [taskDate, setTaskDate] = useState("");
-    const [taskPrio, setTaskPrio] = useState("");
+    const [taskPrio, setTaskPrio] = useState("high");
     const [arenaTask, setArenaTask] = useState([]);
-    // pass state props to NewTask
-
     return (
         <div id="arena">
             <h1>
@@ -43,7 +41,7 @@ export default function Arena({ category, task, setTask }) {
                                     <p>{task.date}</p>
                                 </div>
 
-                                <div>
+                                <div className="options">
                                     <div>bin</div>
                                     <div>complete</div>
                                     <div>edit</div>

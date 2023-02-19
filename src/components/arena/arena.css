@@ -1,0 +1,19 @@
+.task-entry {
+    display: flex;
+}
+
+.options {
+    display: flex;
+}
+
+.low {
+    border-left: 1px solid #3b7cff;
+}
+
+.medium {
+    border-left: 1px solid #ffdb5a;
+}
+
+.high {
+    border-left: 1px solid #9d1313;
+}
