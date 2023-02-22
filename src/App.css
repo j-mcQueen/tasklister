@@ -183,3 +183,11 @@ footer {
   background-color: #7d7d7d;
   cursor: pointer;
 }
+
+.remove {
+  color:  #53DA53;
+}
+
+.edit {
+  color: #6196ff;
+}
