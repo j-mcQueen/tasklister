@@ -1,9 +1,19 @@
 #arena {
+    --arenaGap: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--arenaGap);
     height: 100%;
     width: 100%;
+}
+
+#arena h1 {
+    color: #d9d9d9;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    margin-top: var(--arenaGap);
 }
 
 #arena .modal {
@@ -21,14 +31,15 @@
     display: flex;
     flex-direction: column;
     width: 40%;
-    gap: 20px;
+    gap: var(--arenaGap);
 }
 
 .task-entry {
     display: flex;
+    align-items: center;
     gap: 10px;
     width: 100%;
-    border-radius: 5px;
+    border-bottom: 1px solid var(--lighter);
 }
 
 .add-task select {
@@ -55,19 +66,20 @@
     align-items: center;
     width: 100%;
     padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid var(--lighter);
     border-left: none;
 }
 
-.low {
-    border-left: 2px solid #3b7cff;
+.low::before {
+    content: "\25C6";
+    color: #3b7cff;
 }
 
-.medium {
-    border-left: 2px solid #ffdb5a;
+.medium::before {
+    content: "\25C6";
+    color: #ffdb5a;
 }
 
-.high {
-    border-left: 2px solid #9d1313;
+.high::before {
+    content: "\25C6";
+    color: #9d1313;
 }
