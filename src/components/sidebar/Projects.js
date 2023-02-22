@@ -39,7 +39,7 @@ export default function Projects() {
 
                         <span>
                             <svg 
-                                className="remove" 
+                                className="remove icon" 
                                 onClick={() => {
                                     setProjects(
                                         projects.filter(item => item.id !== project.id)

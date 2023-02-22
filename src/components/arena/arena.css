@@ -3,16 +3,32 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
+    width: 100%;
 }
 
 #arena .modal {
     top: 30%;
 }
 
-.add-task {
+#tasks {
+    display: flex;
+    justify-content: center;
+    color: var(--lighter);
+    width: 100%;
+}
+
+#task-list {
     display: flex;
     flex-direction: column;
+    width: 40%;
     gap: 20px;
+}
+
+.task-entry {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .add-task select {
@@ -25,22 +41,33 @@
     width: 100%;
 }
 
-.task-entry {
-    display: flex;
-}
-
 .options {
     display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.low,
+.medium,
+.high {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--lighter);
+    border-left: none;
 }
 
 .low {
-    border-left: 1px solid #3b7cff;
+    border-left: 2px solid #3b7cff;
 }
 
 .medium {
-    border-left: 1px solid #ffdb5a;
+    border-left: 2px solid #ffdb5a;
 }
 
 .high {
-    border-left: 1px solid #9d1313;
+    border-left: 2px solid #9d1313;
 }

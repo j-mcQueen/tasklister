@@ -51,6 +51,7 @@ input, select {
   font-family: "Inter";
   font-size: 14px;
   letter-spacing: -0.75px;
+  width: 100%;
 }
 
 .modal {
@@ -167,4 +168,18 @@ header {
 
 footer {
   grid-area: footer;
+}
+
+.icon {
+  color: var(--lighter);
+  fill: currentColor;
+  width: 18px;
+  height: 18px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.icon:hover {
+  background-color: #7d7d7d;
+  cursor: pointer;
 }
