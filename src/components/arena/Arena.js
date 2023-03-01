@@ -1,12 +1,28 @@
 import "./arena.css";
-import { useState } from "react";
-import NewTask from "./NewTask"
+import { useReducer } from "react";
+import NewTask from "./NewTask";
+import { taskReducer } from "./taskReducer";
 
 export default function Arena({ category, task, setTask }) {
-    const [taskTitle, setTaskTitle] = useState("");
-    const [taskDate, setTaskDate] = useState("");
-    const [taskPrio, setTaskPrio] = useState("high");
-    const [arenaTask, setArenaTask] = useState([]);
+    const [tasks, dispatch] = useReducer(taskReducer, []);
+
+    const addTask = ({...props}) => {
+        dispatch({
+            type: "added",
+            id: props.taskTitle,
+            title: props.taskTitle,
+            date: props.taskDate,
+            prio: props.taskPrio,
+        });
+    }
+
+    const deleteTask = (index) => {
+        dispatch({
+            type: "deleted",
+            id: index,
+        })
+    }
+
     return (
         <div id="arena">
             <h1>
@@ -33,25 +49,20 @@ export default function Arena({ category, task, setTask }) {
 
             <div id="tasks">
                 <ul id="task-list">
-                    {arenaTask.map(task => (
-                        <li key={task.id}>
+                    {console.log(tasks)}
+                    {tasks.map(t => (
+                        <li key={t.id}>
                             <div className="task-entry">
-                                <div className={task.prio}>
-                                    <p>{task.title}</p>
-                                    <p>{task.date}</p>
+                                <div className={t.prio}>
+                                    <p>{t.title}</p>
+                                    <p>{t.date}</p>
                                 </div>
 
                                 <div className="options">
                                     <div>
                                         <svg 
                                             className="remove icon"
-                                            onClick={() => {
-                                                setArenaTask(
-                                                    arenaTask.filter(item =>
-                                                        item.id !== task.id
-                                                    )
-                                                )
-                                            }}
+                                            onClick={() => { deleteTask(t.id) }}
                                             xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 16 16">
                                                 <path 
@@ -62,7 +73,8 @@ export default function Arena({ category, task, setTask }) {
                                     </div>
                                     <div>
                                         <svg
-                                            className="edit icon" 
+                                            className="edit icon"
+                                            onClick={() => {}}
                                             xmlns="http://www.w3.org/2000/svg" 
                                             viewBox="0 0 20 20">
                                                 <path 
@@ -70,7 +82,8 @@ export default function Arena({ category, task, setTask }) {
                                                 </path>
                                                 <path 
                                                     fillRule="evenodd"
-                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd">
+                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" 
+                                                    clipRule="evenodd">
                                                 </path>
                                         </svg>
                                     </div>
@@ -88,18 +101,7 @@ export default function Arena({ category, task, setTask }) {
                 <NewTask
                     task={task}
                     setTask={setTask}
-
-                    taskTitle={taskTitle}
-                    setTaskTitle={setTaskTitle}
-
-                    taskDate={taskDate}
-                    setTaskDate={setTaskDate}
-
-                    taskPrio={taskPrio}
-                    setTaskPrio={setTaskPrio}
-
-                    arenaTask={arenaTask}
-                    setArenaTask={setArenaTask}
+                    addTask={addTask}
                 />
                 :
                 <></>

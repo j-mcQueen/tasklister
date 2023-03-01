@@ -1,6 +1,10 @@
-import TaskBtns from "./TaskBtns";
+import { useState } from "react";
+// import TaskBtns from "./TaskBtns";
 
 export default function NewTask({...props}) {
+    const [taskTitle, setTaskTitle] = useState("");
+    const [taskDate, setTaskDate] = useState("");
+    const [taskPrio, setTaskPrio] = useState("high");
     return (
         <div className="modal">
             <form className="add-task">
@@ -10,8 +14,10 @@ export default function NewTask({...props}) {
                         required
                         type="text"
                         id="task-title"
-                        onChange={e => 
-                            props.setTaskTitle(e.target.value)
+                        onChange={e => {
+                            setTaskTitle(e.target.value);
+                        }
+                        
                         }/>
                 </fieldset>
 
@@ -22,7 +28,7 @@ export default function NewTask({...props}) {
                         type="date"
                         id="due"
                         onChange={e => 
-                            props.setTaskDate(e.target.value)
+                            setTaskDate(e.target.value)
                         }/>
                 </fieldset>
 
@@ -31,9 +37,9 @@ export default function NewTask({...props}) {
                     <select 
                         name="prio"
                         id="prio"
-                        value={props.taskPrio}
+                        value={taskPrio}
                         onChange={e => 
-                            props.setTaskPrio(e.target.value)
+                            setTaskPrio(e.target.value)
                         }
                         >
                         <option value="high">High</option>
@@ -42,22 +48,26 @@ export default function NewTask({...props}) {
                     </select>
                 </fieldset>
 
-                <TaskBtns
-                    task={props.task}
-                    setTask={props.setTask}
+                <div className="project-btns">
+                    <button
+                        className="confirm"
+                        type="submit"
+                        onClick={() => {
+                            props.addTask({taskTitle, taskDate, taskPrio});
+                            props.setTask(!props.task);
+                        }}
+                    >
+                        Confirm
+                    </button>
 
-                    taskTitle={props.taskTitle}
-                    setTaskTitle={props.setTaskTitle}
-
-                    taskDate={props.taskDate}
-                    setTaskDate={props.setTaskDate}
-                    
-                    taskPrio={props.taskPrio}
-                    setTaskPrio={props.setTaskPrio}
-
-                    arenaTask={props.arenaTask}
-                    setArenaTask={props.setArenaTask}
-                />
+                    <button
+                        className="cancel"
+                        type="button" 
+                        onClick={() => props.setTask(!props.task)}
+                    >
+                        Cancel
+                    </button>
+                </div>
             </form>
         </div>
     )
