@@ -1,9 +1,17 @@
 import "./arena.css";
 import { useReducer } from "react";
+import Task from "./Task";
 import NewTask from "./NewTask";
 import { taskReducer } from "./taskReducer";
 
 export default function Arena({ category, task, setTask }) {
+    // -- OBJECTIVE: When a user clicks the edit button, permit changes to that task in the array
+        // -- RUBBER DUCK
+            // If we are to edit tasks by reopening the modal, the modal currently only has AddTask capabilities, so we would need to add a conditional which checked if a task was being added or edited and then supply the appropriate callbacks to the event listener
+        // -- PLAN
+            // We need to attach state to the edit button
+            // If edit button is clicked, edit is active, so replace task text with inputs permitting change
+    
     const [tasks, dispatch] = useReducer(taskReducer, []);
 
     const addTask = ({...props}) => {
@@ -16,11 +24,18 @@ export default function Arena({ category, task, setTask }) {
         });
     }
 
+    const editTask = (task) => {
+        dispatch({
+            type: "edited",
+            task,
+        });
+    }
+
     const deleteTask = (index) => {
         dispatch({
             type: "deleted",
             id: index,
-        })
+        });
     }
 
     return (
@@ -49,45 +64,14 @@ export default function Arena({ category, task, setTask }) {
 
             <div id="tasks">
                 <ul id="task-list">
-                    {console.log(tasks)}
                     {tasks.map(t => (
                         <li key={t.id}>
                             <div className="task-entry">
-                                <div className={t.prio}>
-                                    <p>{t.title}</p>
-                                    <p>{t.date}</p>
-                                </div>
-
-                                <div className="options">
-                                    <div>
-                                        <svg 
-                                            className="remove icon"
-                                            onClick={() => { deleteTask(t.id) }}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 16 16">
-                                                <path 
-                                                    fillRule="evenodd"
-                                                    d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM0 8a8 8 0 1116 0A8 8 0 010 8zm11.78-1.72a.75.75 0 00-1.06-1.06L6.75 9.19 5.28 7.72a.75.75 0 00-1.06 1.06l2 2a.75.75 0 001.06 0l4.5-4.5z">
-                                                </path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <svg
-                                            className="edit icon"
-                                            onClick={() => {}}
-                                            xmlns="http://www.w3.org/2000/svg" 
-                                            viewBox="0 0 20 20">
-                                                <path 
-                                                    d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
-                                                </path>
-                                                <path 
-                                                    fillRule="evenodd"
-                                                    d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" 
-                                                    clipRule="evenodd">
-                                                </path>
-                                        </svg>
-                                    </div>
-                                </div>
+                                <Task 
+                                    task={t}
+                                    editTask={editTask}
+                                    deleteTask={deleteTask}
+                                />
                             </div>
                         </li>
                     )
