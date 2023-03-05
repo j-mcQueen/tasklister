@@ -1,24 +1,37 @@
 #sidebar {
-    background-color: #606060;
-    color: #FFDB5A;
-    border-right: 1px solid #FFDB5A;
+    color: var(--blk);
     padding: 20px;
 }
 
 #categories, #projects {
-    display: flex;
-    flex-direction: column;
     gap: 10px;
 }
 
 #categories {
-    padding: 0 0 20px 0;
-    border-bottom: 1px solid #FFDB5A;
+    display: flex;
+    justify-content: center;
 }
 
-.category {
-    opacity: 0.6;
-    transition: 0.2s ease;
+#categories ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    width: 25%;
+}
+
+#categories ul li {
+    background-color: var(--wht);
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+#categories ul .active {
+    background-color: var(--trt);
+    color: var(--wht);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
 }
 
 .category:hover {

@@ -1,23 +1,35 @@
-export default function Categories({setCategory}) {
+export default function Categories({category, setCategory}) {
     return (
         <div id="categories">
-            <h2>
-                <span className="category" onClick={() => setCategory("All")}>
-                    All
-                </span>
-            </h2>
+            <ul>
+                <li 
+                    className={category === "Inbox" ? "active category" : "category"}
+                    onClick={() => setCategory("Inbox")}
+                >
+                    Inbox
+                </li>
 
-            <h2>
-                <span className="category" onClick={() => setCategory("Today")}>
+                <li 
+                    className={category === "Today" ? "active category" : "category"}
+                    onClick={() => setCategory("Today")}
+                >
                     Today
-                </span>
-            </h2>
+                </li>
 
-            <h2>
-                <span className="category" onClick={() => setCategory("Week")}>
+                <li 
+                    className={category === "Week" ? "active category" : "category"}
+                    onClick={() => setCategory("Week")}
+                >
                     Week
-                </span>
-            </h2>
+                </li>
+
+                <li 
+                    className={category === "Projects" ? "active category" : "category"}
+                    onClick={() => setCategory("Projects")}
+                >
+                    Projects
+                </li>
+            </ul>
         </div>
     )
 }

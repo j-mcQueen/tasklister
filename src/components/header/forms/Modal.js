@@ -7,7 +7,6 @@ import SignUpInputs from "./SignUpInputs";
 
 export default function Modal({isActive, setIsActive}) {        
     const [inputs, setInputs] = useState(0);
-    // TODO make active span yellow
     return (
         <div id="modal" className="modal">
             <Tabs

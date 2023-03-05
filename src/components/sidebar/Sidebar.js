@@ -2,15 +2,14 @@ import "./sidebar.css";
 import "./categories.css";
 import "./projects.css";
 import Categories from "./Categories";
-import Projects from "./Projects";
 
-export default function Sidebar({setCategory}) {
+export default function Sidebar({category, setCategory}) {
     return (
         <div id="sidebar">
             <Categories
+            category={category}
                 setCategory={setCategory}
             />
-            <Projects/>
         </div>
     )
 }

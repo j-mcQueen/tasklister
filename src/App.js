@@ -10,7 +10,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(isDesktop);
   const [isActive, setIsActive] = useState(false);
   const [task, setTask] = useState(false);
-  const [category, setCategory] = useState("All");
+  const [category, setCategory] = useState("Inbox");
 
   return (
     <div className="App">
@@ -53,6 +53,7 @@ function App() {
         <Sidebar
           isActive={isActive}
           setIsActive={setIsActive}
+          category={category}
           setCategory={setCategory}
         /> 
         : <></> 
