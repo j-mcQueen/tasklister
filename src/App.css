@@ -1,41 +1,40 @@
 /* for desktops - media query needed for mobile */
 @font-face {
-  font-family: "Inter";
-  src: url(./fonts/Inter/static/Inter-Regular.ttf), format("ttf"),
-    url(./fonts/Inter/static/Inter-Bold.ttf), format("ttf");
+  font-family: "Cabin";
+  src: url(./fonts/Cabin/Cabin-Regular.ttf), format("ttf"),
+    url(./fonts/Cabin/Cabin-Bold.ttf), format("ttf");
 }
 
 :root {
-  --lighter: #D9D9D9;
-  --light: #606060;
-	--med: #4A4949;
-  --dark: #393939;
-  --font: "Inter";
-  background-color: var(--med);
+  --blk: #000000;
+  --wht: #FFFFFF;
+  --pri: #ECF3F7;
+  --trt: #4D88FD;
+  --font: "Cabin";
+  background-color: var(--pri);
   letter-spacing: -0.75px;
+  min-width: 300px;
 }
 
 .App {
   display: grid;
   grid-template-areas:
     "header header"
-    "sidebar content"
-    "footer footer";
-  grid-template-columns: 1fr 5fr;
-  grid-template-rows: 0.5fr 4fr 0.5fr;
+    "sidebar sidebar"
+    "content content";
+  grid-template-rows: 0.15fr 0.15fr 1fr;
   height: 100vh;
 }
 
-header, #sidebar, #arena, footer, button {
+header, #sidebar, #arena, button {
   font-family: var(--font);
 }
 
-header, footer {
+header {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  background-color: var(--dark);
   z-index: 1;
   width: 100%;
   padding: 10px;
@@ -114,28 +113,19 @@ form {
 }
 
 button {
-  background-color: inherit;
-  color: var(--lighter);
   border: none;
   border-radius: 5px;
-  padding: 10px 15px;
   font-size: 14px;
-  font-weight: bold;
-  transition: 0.4s ease;
+  transition: 0.3s ease;
   letter-spacing: -0.75px;
-  box-shadow: 0px 2px 2px #1f1f1f;
 }
 
 button:hover {
   cursor: pointer;
 }
 
-.continue {
-  border: 1px solid #3b7cff;
-}
-
-.continue:hover {
-  background-color: #3b7cff;
+.blue {
+  background-color: var(--trt);
 }
 
 .confirm {
@@ -164,10 +154,6 @@ header {
 
 #arena {
   grid-area: content;
-}
-
-footer {
-  grid-area: footer;
 }
 
 .icon {

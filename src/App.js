@@ -1,7 +1,6 @@
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
 import Arena from "./components/arena/Arena";
-import Footer from './components/footer/Footer';
 import './App.css';
 import { useState } from "react";
 
@@ -80,7 +79,6 @@ function App() {
         setTask={setTask}
         category={category}
       />
-      <Footer/>
     </div>
   );
 }

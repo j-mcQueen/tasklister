@@ -1,9 +1,9 @@
 export default function Login({isActive, setIsActive}) {
     return (
-        <div id="wrap">
+        <div id="login">
             <button
                 type="button"
-                className="continue"
+                className="blue"
                 disabled={isActive}
                 onClick={() => setIsActive(!isActive)}
             >

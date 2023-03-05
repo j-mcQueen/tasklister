@@ -1,4 +1,34 @@
 header {
     gap: 20px;
-    border-bottom: 1px solid #ffdb5a;
+}
+
+#login > .blue {
+    color: var(--wht);
+    padding: 10px 20px;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+#login > .blue:hover {
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+#brgr {
+    display: none;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+#brgr:hover {
+    cursor: pointer;
+    background-color: #606060;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 6px 0;
+    border-radius: 5px;
+    background-color: #d9d9d9;
 }
