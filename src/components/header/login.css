@@ -1,9 +1,0 @@
-#log {
-    font-size: 14px;
-    padding: 7px 15px;
-    box-shadow: 0 0 5px 3px #292828;
-}
-
-#log:hover {
-    box-shadow: 0 0 5px 5px #292828;
-}
