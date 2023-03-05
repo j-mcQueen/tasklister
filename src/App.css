@@ -34,10 +34,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
   z-index: 1;
   width: 100%;
-  padding: 10px;
 }
 
 .project-btns {
@@ -47,7 +45,7 @@ header {
 }
 
 input, select {
-  font-family: "Inter";
+  font-family: var(--font);
   font-size: 14px;
   letter-spacing: -0.75px;
   width: 100%;
@@ -56,10 +54,9 @@ input, select {
 .modal {
   display: block;
   position: absolute;
-  background-color: var(--dark);
-  box-shadow: 0 0 2px 3px #2c2b2b inset;
-  padding: 30px;
-  border-radius: 20px;
+  background-color: var(--wht);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
 .modal fieldset {
@@ -67,29 +64,25 @@ input, select {
   gap: 20px;
 }
 
-
 .modal label {
   display: block;
-  color: var(--lighter);
   padding: 5px 0;
 }
 
 .modal input {
-  color: var(--lighter);
-  background-color: #393939;
+  background-color: inherit;
   appearance: none;
-  border: 1px solid var(--lighter);
+  border: 1px solid rgba(77, 136, 253, 0.5);
   border-radius: 5px;
   height: 25px;
 }
 
 .modal input:focus {
   outline: none;
-  border: 1px solid #FFDB5A;
+  border: 1px solid var(--trt);
 }
 
 form {
-  color: var(--lighter);
   font-size: 14px;
 }
 
@@ -114,7 +107,6 @@ form {
 
 button {
   border: none;
-  border-radius: 5px;
   font-size: 14px;
   transition: 0.3s ease;
   letter-spacing: -0.75px;
@@ -128,20 +120,16 @@ button:hover {
   background-color: var(--trt);
 }
 
+.red {
+  background-color: #FD4D4D;
+}
+
 .confirm {
   border: 1px solid green;
 }
 
 .confirm:hover {
   background-color: green;
-}
-
-.cancel {
-  border: 1px solid #9d1313;
-}
-
-.cancel:hover {
-  background-color: #9d1313;
 }
 
 header {

@@ -2,13 +2,17 @@ export default function LoginInputs() {
     return(
         <form>
             <fieldset>
-                <label htmlFor="uname">username</label>
-                <input type="text" id="uname"/>
+                <div>
+                    <label htmlFor="uname">Username</label>
+                    <input type="text" id="uname"/>
+                </div>
             </fieldset>
 
             <fieldset>
-                <label htmlFor="pwd">password</label>
-                <input type="password" id="pwd"/>
+                <div>
+                    <label htmlFor="pwd">Password</label>
+                    <input type="password" id="pwd"/>
+                </div>
             </fieldset>
         </form>
     )

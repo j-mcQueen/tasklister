@@ -15,22 +15,6 @@ function App() {
   return (
     <div className="App">
       {/*
-
-        Sidebar
-          Potential reusability of components here - all clicks do the same thing -> change title in arena to whatever you clicked on, show tasks
-
-          All component
-            On click, display all tasks in arena
-              Change title to "All"
-
-          Today component
-            On click, display today's tasks in arena
-              Change title to "Today"
-
-          Week component
-            On click, display week's tasks in arena
-              Change title to "Week"
-
           Projects
             On click, display all projects with tasks in arena
             First step is to get user input and appending it to the sidebar
@@ -63,7 +47,7 @@ function App() {
         setIsOpen={setIsOpen}
       />
 
-      { 
+      { // mobile/ tablet only
         isOpen 
         ? 
         <Sidebar
