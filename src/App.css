@@ -121,22 +121,22 @@ header {
   grid-area: content;
 }
 
-.icon {
-  color: var(--lighter);
+.icon, .flag {
   fill: currentColor;
   width: 18px;
   height: 18px;
   padding: 10px;
   border-radius: 5px;
+  transition: 0.1s ease;
 }
 
 .icon:hover {
-  background-color: #7d7d7d;
+  background-color: #ededed;
   cursor: pointer;
 }
 
 .remove {
-  color:  #53DA53;
+  color:  #42ad42;
 }
 
 .edit {

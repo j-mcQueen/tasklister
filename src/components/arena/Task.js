@@ -49,11 +49,39 @@ export default function Task({task, editTask, deleteTask}) {
         taskContent = (
             <>
                 <div className={task.prio}>
-                    <p>{task.title}</p>
-                    <p>{task.date}</p>
+                    <div className="task-prop">
+                        <p>
+                            <span>Title:</span> {task.title}
+                        </p>
+                    </div>
+
+                    <div className="task-prop">
+                        <p>
+                            <span>Project:</span>
+                        </p>{/* project title goes here -> if no project has been declared, print "unassigned" */}
+                    </div>
+
+                    <div className="task-prop">
+                        <p>
+                            <span>Due Date:</span> {task.date}
+                        </p>
+                    </div>
                 </div>
 
-                <div className="options">
+                <div className="task-icons">
+                    <div>
+                        <svg 
+                            className={`${task.prio}-flag flag`}
+                            xmlns="http://www.w3.org/2000/svg" 
+                            viewBox="0 0 20 20">
+                                <path 
+                                    fillRule="evenodd" 
+                                    d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" 
+                                    clipRule="evenodd">
+                                </path>
+                        </svg>
+                    </div>
+
                     <div>
                         <svg
                             className="edit icon"

@@ -25,6 +25,15 @@ export default function NewTask({...props}) {
 
                     <fieldset>
                         <div>
+                            <label htmlFor="task-project">Assign To</label>
+                            <select name="task-project" id="task-project">
+
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div>
                             <label htmlFor="due">Due Date</label>
                             <input
                                 required

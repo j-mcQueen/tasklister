@@ -4,14 +4,7 @@ import Task from "./Task";
 import NewTask from "./NewTask";
 import { taskReducer } from "./taskReducer";
 
-export default function Arena({ category, task, setTask }) {
-    // -- OBJECTIVE: When a user clicks the edit button, permit changes to that task in the array
-        // -- RUBBER DUCK
-            // If we are to edit tasks by reopening the modal, the modal currently only has AddTask capabilities, so we would need to add a conditional which checked if a task was being added or edited and then supply the appropriate callbacks to the event listener
-        // -- PLAN
-            // We need to attach state to the edit button
-            // If edit button is clicked, edit is active, so replace task text with inputs permitting change
-    
+export default function Arena({...props}) {
     const [tasks, dispatch] = useReducer(taskReducer, []);
 
     const addTask = ({...props}) => {
@@ -41,15 +34,15 @@ export default function Arena({ category, task, setTask }) {
     return (
         <div id="arena">
             <h1>
-                {category}
+                {props.category}
             </h1>
 
             <div className="add">
                 <button 
                     type="button"
                     className="blue"
-                    disabled={task}
-                    onClick={() => setTask(!task)}
+                    disabled={props.task}
+                    onClick={() => props.setTask(!props.task)}
                 >
                     Add
                 </button>
@@ -71,11 +64,11 @@ export default function Arena({ category, task, setTask }) {
             </div>
 
             {
-                task
+                props.task
                 ?
                 <NewTask
-                    task={task}
-                    setTask={setTask}
+                    task={props.task}
+                    setTask={props.setTask}
                     addTask={addTask}
                 />
                 :
