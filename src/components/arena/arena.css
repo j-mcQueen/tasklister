@@ -1,23 +1,62 @@
 #arena {
-    --arenaGap: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--arenaGap);
+    gap: 20px;
     height: 100%;
     width: 100%;
 }
 
 #arena h1 {
-    color: #d9d9d9;
-    font-size: 30px;
+    color: var(--blk);
+    font-size: 36px;
     width: 100%;
     text-align: center;
-    margin-top: var(--arenaGap);
+    margin-top: 20px;
+}
+
+.add > .blue {
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: var(--wht);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.add > .blue:hover {
+    transform: translateX(5px);
 }
 
 #arena .modal {
     top: 30%;
+}
+
+.add-task > .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+}
+
+fieldset div {
+    width: 100%;
+}
+
+.project-btns {
+    display: flex;
+}
+
+.project-btns > button {
+    color: var(--wht);
+    width: 100%;
+    padding: 20px;
+}
+
+.project-btns > button:nth-child(1) {
+    border-radius: 0 0 0 10px;
+}
+
+.project-btns > button:nth-child(2) {
+    border-radius: 0 0 10px 0;
 }
 
 #tasks {
@@ -42,14 +81,17 @@
     border-bottom: 1px solid var(--lighter);
 }
 
+#task-title {
+    padding-left: 5px;
+}
+
 .add-task select {
-    font-family: "Inter";
-    border: 1px solid #d9d9d9;
+    border: 1px solid rgba(77, 136, 253, 0.5);
     border-radius: 5px;
-    color: #d9d9d9;
+    color: rgba(0, 0, 0, 0.25);
     background-color: inherit;
     height: 25px;
-    width: 100%;
+    padding: 0 5px;
 }
 
 .options {

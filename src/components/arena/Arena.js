@@ -47,18 +47,11 @@ export default function Arena({ category, task, setTask }) {
             <div className="add">
                 <button 
                     type="button"
-                    className="plus"
+                    className="blue"
                     disabled={task}
                     onClick={() => setTask(!task)}
                 >
-                    <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        viewBox="0 0 24 24">
-                            <path 
-                                fillRule="evenodd" 
-                                d="M11.75 4.5a.75.75 0 01.75.75V11h5.75a.75.75 0 010 1.5H12.5v5.75a.75.75 0 01-1.5 0V12.5H5.25a.75.75 0 010-1.5H11V5.25a.75.75 0 01.75-.75z">
-                            </path>
-                    </svg>
+                    Add
                 </button>
             </div>
 
@@ -66,13 +59,11 @@ export default function Arena({ category, task, setTask }) {
                 <ul id="task-list">
                     {tasks.map(t => (
                         <li key={t.id}>
-                            <div className="task-entry">
-                                <Task 
-                                    task={t}
-                                    editTask={editTask}
-                                    deleteTask={deleteTask}
-                                />
-                            </div>
+                            <Task
+                                task={t}
+                                editTask={editTask}
+                                deleteTask={deleteTask}
+                            />
                         </li>
                     )
                     )}

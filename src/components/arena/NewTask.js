@@ -8,49 +8,57 @@ export default function NewTask({...props}) {
     return (
         <div className="modal">
             <form className="add-task">
-                <fieldset>
-                    <label htmlFor="task-title">Title</label>
-                    <input
-                        required
-                        type="text"
-                        id="task-title"
-                        onChange={e => {
-                            setTaskTitle(e.target.value);
-                        }
-                        
-                        }/>
-                </fieldset>
+                <div className="fields">
+                    <fieldset>
+                        <div>
+                            <label htmlFor="task-title">Title</label>
+                            <input
+                                required
+                                type="text"
+                                id="task-title"
+                                onChange={e => {
+                                    setTaskTitle(e.target.value);
+                                }}
+                            />
+                        </div>
+                    </fieldset>
 
-                <fieldset>
-                    <label htmlFor="due">Due Date</label>
-                    <input
-                        required
-                        type="date"
-                        id="due"
-                        onChange={e => 
-                            setTaskDate(e.target.value)
-                        }/>
-                </fieldset>
+                    <fieldset>
+                        <div>
+                            <label htmlFor="due">Due Date</label>
+                            <input
+                                required
+                                type="date"
+                                id="due"
+                                onChange={e => 
+                                    setTaskDate(e.target.value)
+                                }
+                            />
+                        </div>
+                    </fieldset>
 
-                <fieldset>
-                    <label htmlFor="prio">Priority</label>
-                    <select 
-                        name="prio"
-                        id="prio"
-                        value={taskPrio}
-                        onChange={e => 
-                            setTaskPrio(e.target.value)
-                        }
-                        >
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                </fieldset>
+                    <fieldset>
+                        <div>
+                            <label htmlFor="prio">Priority</label>
+                            <select 
+                                name="prio"
+                                id="prio"
+                                value={taskPrio}
+                                onChange={e => 
+                                    setTaskPrio(e.target.value)
+                                }
+                                >
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
 
                 <div className="project-btns">
                     <button
-                        className="confirm"
+                        className="green"
                         type="submit"
                         onClick={() => {
                             props.addTask({taskTitle, taskDate, taskPrio});
@@ -61,7 +69,7 @@ export default function NewTask({...props}) {
                     </button>
 
                     <button
-                        className="cancel"
+                        className="red"
                         type="button" 
                         onClick={() => props.setTask(!props.task)}
                     >

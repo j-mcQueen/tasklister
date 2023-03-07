@@ -18,6 +18,7 @@
 
 .App {
   display: grid;
+  align-items: center;
   grid-template-areas:
     "header header"
     "sidebar sidebar"
@@ -36,12 +37,6 @@ header {
   align-items: center;
   z-index: 1;
   width: 100%;
-}
-
-.project-btns {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
 }
 
 input, select {
@@ -75,6 +70,7 @@ input, select {
   border: 1px solid rgba(77, 136, 253, 0.5);
   border-radius: 5px;
   height: 25px;
+  padding: 0;
 }
 
 .modal input:focus {
@@ -88,21 +84,6 @@ form {
 
 .add span {
   color: var(--lighter);
-}
-
-.plus {
-  font-size: 20px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 1px 1px #424242 inset;
-  background: none;
-  transition: 0.3s ease;
-}
-
-.plus:hover {
-  background-color: #656565;
-  cursor: pointer;
 }
 
 button {
@@ -124,12 +105,8 @@ button:hover {
   background-color: #FD4D4D;
 }
 
-.confirm {
-  border: 1px solid green;
-}
-
-.confirm:hover {
-  background-color: green;
+.green {
+  background-color: #378E37;
 }
 
 header {

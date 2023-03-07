@@ -1,5 +1,4 @@
 import "./sidebar.css";
-import "./categories.css";
 import "./projects.css";
 import Categories from "./Categories";
 
