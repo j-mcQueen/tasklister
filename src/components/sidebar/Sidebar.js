@@ -6,7 +6,7 @@ export default function Sidebar({category, setCategory}) {
     return (
         <div id="sidebar">
             <Categories
-            category={category}
+                category={category}
                 setCategory={setCategory}
             />
         </div>

@@ -1,41 +1,56 @@
+@media only screen and (min-width: 1081px) {
+    .category:hover {
+        cursor: pointer;
+    }
+
+    #categories {
+        display: flex;
+        justify-content: center;
+    }
+
+    #categories ul {
+        gap: 10px;
+        width: 25%;
+    }
+
+    #categories ul li {
+        border-radius: 10px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+    #categories ul li {
+        padding: 8% 0;
+    }
+}
+
 #sidebar {
-    color: var(--blk);
-}
-
-#categories, #projects {
-    gap: 10px;
-}
-
-#categories {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
 #categories ul {
     display: flex;
     justify-content: space-around;
-    gap: 10px;
-    width: 25%;
-}
-
-#categories ul li {
-    background-color: var(--wht);
-    border-radius: 10px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    text-align: center;
-    padding: 10px;
-    width: 100%;
 }
 
 #categories ul .active {
     background-color: var(--trt);
     color: var(--wht);
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
 }
 
-.category:hover {
-    cursor: pointer;
-    opacity: 1;
+#categories ul li {
+    background-color: var(--wht);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    width: 100%;
+    text-align: center;
 }
 
 #projects {
