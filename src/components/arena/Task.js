@@ -7,32 +7,39 @@ export default function Task({task, editTask, deleteTask}) {
         taskContent = (
             <>
                 <div className={task.prio}>
-                    <input 
-                        type="text"
-                        value={task.title}
-                        onChange={e => {
-                            editTask({
-                                ...task, 
-                                title: e.target.value
-                            })
-                        }}
-                    />
-                    <input
-                        type="date"
-                        value={task.date}
-                        onChange={e => {
-                            editTask({
-                                ...task,
-                                date: e.target.value
-                            })
-                        }}
-                    />
+                    <div className="task-prop edit">
+                            <span>Title:</span>
+                            <input
+                                type="text"
+                                value={task.title}
+                                onChange={e => {
+                                    editTask({
+                                        ...task, 
+                                        title: e.target.value
+                                    })
+                                }}
+                            />
+                    </div>
+                    
+                    <div className="task-prop edit">
+                        <span>Due Date:</span>
+                        <input
+                            type="date"
+                            value={task.date}
+                            onChange={e => {
+                                editTask({
+                                    ...task,
+                                    date: e.target.value
+                                })
+                            }}
+                        />
+                    </div>
                 </div>
 
-                <div className="options">
+                <div className="task-icons">
                     <div>
                         <svg 
-                            className="complete icon"
+                            className="done icon"
                             onClick={() =>  setEditActive(false) }
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16">
@@ -100,7 +107,7 @@ export default function Task({task, editTask, deleteTask}) {
                     </div>
                     <div>
                         <svg 
-                            className="remove icon"
+                            className="done icon"
                             onClick={() => { deleteTask(task.id) }}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16">

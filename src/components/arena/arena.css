@@ -152,6 +152,12 @@ fieldset div {
     gap: 10px;
 }
 
+.task-icons > div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .task-icons {
     display: flex;
     flex-direction: column;
