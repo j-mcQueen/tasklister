@@ -2,7 +2,7 @@ export default function FormBtns({isActive, setIsActive}) {
     return (
         <div id="btns">
                 <button 
-                    type="button"
+                    type="submit"
                     className="blue"
                 >
                     Continue

@@ -1,5 +1,4 @@
 import Tabs from "./Tabs"
-import FormBtns from "./FormBtns"
 import "./form.css";
 import { useState } from "react";
 import LoginInputs from "./LoginInputs";
@@ -16,14 +15,13 @@ export default function Modal({isActive, setIsActive}) {
             />
 
             {
-                inputs === 0 ? <LoginInputs/> : <SignUpInputs/>
+                inputs === 0 ? <LoginInputs 
+                                    isActive={isActive} 
+                                    setIsActive={setIsActive}/> 
+                             : <SignUpInputs 
+                                    isActive={isActive} 
+                                    setIsActive={setIsActive}/>
             }
-
-            <FormBtns
-                isActive={isActive}
-                setIsActive={setIsActive}
-            />
-            {/* TODO FormBtns will likely need to be inside the form itself so the form can submit login/ signup information to the server */}
         </div>
     )
 }
