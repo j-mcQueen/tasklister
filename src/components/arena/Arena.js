@@ -1,11 +1,15 @@
 import "./arena.css";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
+import { taskReducer } from "./taskReducer";
 import Task from "./Task";
 import NewTask from "./NewTask";
-import { taskReducer } from "./taskReducer";
+import Project from "./Project";
+import NewProject from "./NewProject";
 
 export default function Arena({...props}) {
     const [tasks, dispatch] = useReducer(taskReducer, []);
+    const [projectModal, setProjectModal] = useState(false);
+    const [projects, setProjects] = useState([]);
 
     const addTask = ({...props}) => {
         dispatch({
@@ -38,28 +42,90 @@ export default function Arena({...props}) {
             </h1>
 
             <div className="add">
-                <button 
-                    type="button"
-                    className="blue"
-                    disabled={props.task}
-                    onClick={() => props.setTask(!props.task)}
-                >
-                    Add
-                </button>
+                {
+                    props.category === "Projects"
+                    ?
+                    <button 
+                        type="button"
+                        className="blue"
+                        disabled={projectModal}
+                        onClick={() => setProjectModal(!projectModal)}
+                    >
+                        Add Project
+                    </button>
+                    :
+                    <button 
+                        type="button"
+                        className="blue"
+                        disabled={props.task}
+                        onClick={() => props.setTask(!props.task)}
+                    >
+                        Add Task
+                    </button>
+                }
             </div>
 
             <div id="tasks">
                 <ul id="task-list">
-                    {tasks.map(t => (
-                        <li key={t.id}>
-                            <Task
-                                task={t}
-                                editTask={editTask}
-                                deleteTask={deleteTask}
-                            />
-                        </li>
-                    )
-                    )}
+                    {
+                        props.category === "Inbox" 
+                        ? 
+                        tasks.map(t => (
+                            <li key={t.id}>
+                                <Task
+                                    task={t}
+                                    editTask={editTask}
+                                    deleteTask={deleteTask}
+                                />
+                            </li>
+                        ))
+                        : 
+                        props.category === "Today" 
+                        ?
+                        tasks.filter(t => {
+                            let today = new Date(t.date.replace(/-/g, '/'));
+                            if (today - new Date() < 0) return t;
+                        }).map(t => (
+                            <li key={t.id}>
+                                <Task
+                                    task={t}
+                                    editTask={editTask}
+                                    deleteTask={deleteTask}
+                                />
+                            </li>
+                        ))
+                        :
+                        props.category === "Week"
+                        ?
+                        tasks.filter(t => {
+                            const today = new Date();
+                            const tDate = new Date(t.date);
+                            const nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+                            if (nextWeek - tDate > 0) return t;
+                        }).map(t => (
+                            <li key={t.id}>
+                                <Task
+                                    task={t}
+                                    editTask={editTask}
+                                    deleteTask={deleteTask}
+                                />
+                            </li>
+                        ))                        
+                        :
+                        props.category === "Projects"
+                        ?
+                        projects.map(p => (
+                            <li key={p.id}>
+                                <Project
+                                    project={p}
+                                    projects={projects}
+                                    setProjects={setProjects}
+                                />
+                            </li>
+                        ))
+                        :
+                        <></>
+                    }
                 </ul>
             </div>
 
@@ -70,6 +136,15 @@ export default function Arena({...props}) {
                     task={props.task}
                     setTask={props.setTask}
                     addTask={addTask}
+                />
+                :
+                projectModal
+                ?
+                <NewProject
+                    projectModal={projectModal}
+                    setProjectModal={setProjectModal}
+                    projects={projects}
+                    setProjects={setProjects}
                 />
                 :
                 <></>

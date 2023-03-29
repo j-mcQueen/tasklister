@@ -30,15 +30,8 @@ function App() {
                     Arena title changes to project name
                     Arena displays tasks connected to project name
                   Cancel button click removes modal
-
-            On add, project title (with link) appears in Sidebar
       
         Arena
-        
-        All add buttons on the page do the same thing
-          On click, check identifier which indicates if project or task add click
-            If sidebar, text in modal changes to "Add Project"
-            If arena, text in modal changes to "Add Task"
       */}
       <Header
         isActive={isActive}
