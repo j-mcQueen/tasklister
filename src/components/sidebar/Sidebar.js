@@ -1,5 +1,4 @@
 import "./sidebar.css";
-import "./projects.css";
 import Categories from "./Categories";
 
 export default function Sidebar({category, setCategory}) {
