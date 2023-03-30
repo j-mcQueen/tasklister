@@ -7,6 +7,7 @@ const taskReducer = (tasks, action) => {
                     {
                         id: action.id,
                         title: action.title,
+                        project: action.project,
                         date: action.date,
                         prio: action.prio,
                     }

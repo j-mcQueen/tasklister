@@ -198,10 +198,16 @@ fieldset div {
     border-radius: 10px;
     padding: 10px;
     transition: 0.3s ease;
+    height: 100%;
 }
 
 .project:hover {
     backface-visibility: visible;
     transform: scale(0.98);
     cursor: pointer;
+}
+
+.p-icon:hover {
+    background-color: var(--pri);
+    color: black;
 }

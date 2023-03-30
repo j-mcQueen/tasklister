@@ -9,13 +9,14 @@ import NewProject from "./NewProject";
 export default function Arena({...props}) {
     const [tasks, dispatch] = useReducer(taskReducer, []);
     const [projectModal, setProjectModal] = useState(false);
-    const [projects, setProjects] = useState([]);
+    const [projects, setProjects] = useState([{ id: "Unassigned", title: "Unassigned"}]);
 
     const addTask = ({...props}) => {
         dispatch({
             type: "added",
             id: props.taskTitle,
             title: props.taskTitle,
+            project: props.taskProject,
             date: props.taskDate,
             prio: props.taskPrio,
         });
@@ -136,6 +137,7 @@ export default function Arena({...props}) {
                     task={props.task}
                     setTask={props.setTask}
                     addTask={addTask}
+                    projects={projects}
                 />
                 :
                 projectModal

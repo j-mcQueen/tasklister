@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function NewTask({...props}) {
     const [taskTitle, setTaskTitle] = useState("");
+    const [taskProject, setTaskProject] = useState("");
     const [taskDate, setTaskDate] = useState("");
     const [taskPrio, setTaskPrio] = useState("high");
     return (
@@ -26,8 +27,20 @@ export default function NewTask({...props}) {
                     <fieldset>
                         <div>
                             <label htmlFor="task-project">Assign To</label>
-                            <select name="task-project" id="task-project">
-
+                            <select 
+                                name="task-project" 
+                                id="task-project"
+                                onChange={e => {
+                                    setTaskProject(e.target.value);
+                                }}
+                                >
+                                {
+                                    props.projects.map(project => (
+                                        <option value={project.title}>
+                                            {project.title}
+                                        </option>
+                                    ))
+                                }
                             </select>
                         </div>
                     </fieldset>
@@ -70,7 +83,7 @@ export default function NewTask({...props}) {
                         className="green"
                         type="submit"
                         onClick={() => {
-                            props.addTask({taskTitle, taskDate, taskPrio});
+                            props.addTask({taskTitle, taskProject, taskDate, taskPrio});
                             props.setTask(!props.task);
                         }}
                     >

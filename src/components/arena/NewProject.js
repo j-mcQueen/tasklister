@@ -18,7 +18,7 @@ export default function NewProject({...props}) {
                 <div className="project-btns">
                         <button
                             className="green"
-                            type="button"
+                            type="submit"
                             onClick={() => {
                                 props.setProjects([
                                     ...props.projects,

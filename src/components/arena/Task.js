@@ -64,8 +64,8 @@ export default function Task({task, editTask, deleteTask}) {
 
                     <div className="task-prop">
                         <p>
-                            <span>Project:</span>
-                        </p>{/* project title goes here -> if no project has been declared, print "unassigned" */}
+                            <span>Project:</span> {task.project}
+                        </p>
                     </div>
 
                     <div className="task-prop">
