@@ -21,11 +21,13 @@ export default function NewProject({...props}) {
                             className="green"
                             type="submit"
                             onClick={() => {
-                                props.setProjects([
-                                    ...props.projects,
-                                    { id: uuidv4(), title: projectTitle }
-                                ]);
-                                props.setProjectModal(!props.projectModal)
+                                if (projectTitle !== "") {
+                                    props.setProjects([
+                                        ...props.projects,
+                                        { id: uuidv4(), title: projectTitle }
+                                    ]);
+                                    props.setProjectModal(!props.projectModal)
+                                }
                             }}
                         >
                             Confirm

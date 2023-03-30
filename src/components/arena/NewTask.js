@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function NewTask({...props}) {
     const [taskTitle, setTaskTitle] = useState("");
-    const [taskProject, setTaskProject] = useState("");
+    const [taskProject, setTaskProject] = useState("Unassigned");
     const [taskDate, setTaskDate] = useState("");
     const [taskPrio, setTaskPrio] = useState("high");
     return (
@@ -82,8 +82,10 @@ export default function NewTask({...props}) {
                         className="green"
                         type="submit"
                         onClick={() => {
-                            props.addTask({taskTitle, taskProject, taskDate, taskPrio});
-                            props.setTask(!props.task);
+                            if (taskTitle !== "" && taskProject !== "" && taskDate !== "" && taskPrio !== "") {
+                                props.addTask({taskTitle, taskProject, taskDate, taskPrio});
+                                props.setTask(!props.task);
+                            }
                         }}
                     >
                         Confirm
