@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 export default function NewProject({...props}) {
     const [projectTitle, setProjectTitle] = useState("");
     return (
@@ -22,7 +23,7 @@ export default function NewProject({...props}) {
                             onClick={() => {
                                 props.setProjects([
                                     ...props.projects,
-                                    { id: projectTitle, title: projectTitle }
+                                    { id: uuidv4(), title: projectTitle }
                                 ]);
                                 props.setProjectModal(!props.projectModal)
                             }}

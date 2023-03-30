@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import TaskBtns from "./TaskBtns";
 
 export default function NewTask({...props}) {
     const [taskTitle, setTaskTitle] = useState("");
@@ -36,7 +35,7 @@ export default function NewTask({...props}) {
                                 >
                                 {
                                     props.projects.map(project => (
-                                        <option value={project.title}>
+                                        <option key={project.id} value={project.title}>
                                             {project.title}
                                         </option>
                                     ))

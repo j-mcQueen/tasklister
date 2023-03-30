@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Task({task, editTask, deleteTask}) {
+export default function Task({task, editTask, deleteTask, projects}) {
     const [editActive, setEditActive] = useState(false);
     let taskContent;
     if (editActive) {
@@ -8,17 +8,39 @@ export default function Task({task, editTask, deleteTask}) {
             <>
                 <div className={task.prio}>
                     <div className="task-prop edit">
-                            <span>Title:</span>
-                            <input
-                                type="text"
-                                value={task.title}
-                                onChange={e => {
-                                    editTask({
-                                        ...task, 
-                                        title: e.target.value
-                                    })
-                                }}
-                            />
+                        <span>Title:</span>
+                        <input
+                            type="text"
+                            value={task.title}
+                            onChange={e => {
+                                editTask({
+                                    ...task, 
+                                    title: e.target.value
+                                })
+                            }}
+                        />
+                    </div>
+
+                    <div className="task-prop edit">
+                        <span>Project:</span>
+                        <select
+                            type="text"
+                            value={task.project}
+                            onChange={e => {
+                                editTask({
+                                    ...task, 
+                                    project: e.target.value
+                                })
+                            }}
+                            >
+                            {
+                                projects.map(project => (
+                                    <option key={project.id} value={project.title}>
+                                        {project.title}
+                                    </option>
+                                ))
+                            }
+                        </select>
                     </div>
                     
                     <div className="task-prop edit">

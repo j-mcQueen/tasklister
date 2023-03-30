@@ -1,6 +1,7 @@
 import "./arena.css";
 import { useReducer, useState } from "react";
 import { taskReducer } from "./taskReducer";
+import { v4 as uuidv4 } from 'uuid';
 import Task from "./Task";
 import NewTask from "./NewTask";
 import Project from "./Project";
@@ -9,12 +10,12 @@ import NewProject from "./NewProject";
 export default function Arena({...props}) {
     const [tasks, dispatch] = useReducer(taskReducer, []);
     const [projectModal, setProjectModal] = useState(false);
-    const [projects, setProjects] = useState([{ id: "Unassigned", title: "Unassigned"}]);
+    const [projects, setProjects] = useState([{ id: uuidv4(), title: "Unassigned"}]);
 
     const addTask = ({...props}) => {
         dispatch({
             type: "added",
-            id: props.taskTitle,
+            id: uuidv4(),
             title: props.taskTitle,
             project: props.taskProject,
             date: props.taskDate,
@@ -77,6 +78,7 @@ export default function Arena({...props}) {
                                     task={t}
                                     editTask={editTask}
                                     deleteTask={deleteTask}
+                                    projects={projects}
                                 />
                             </li>
                         ))
@@ -92,6 +94,7 @@ export default function Arena({...props}) {
                                     task={t}
                                     editTask={editTask}
                                     deleteTask={deleteTask}
+                                    projects={projects}
                                 />
                             </li>
                         ))
@@ -109,6 +112,7 @@ export default function Arena({...props}) {
                                     task={t}
                                     editTask={editTask}
                                     deleteTask={deleteTask}
+                                    projects={projects}
                                 />
                             </li>
                         ))                        
