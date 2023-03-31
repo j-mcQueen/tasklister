@@ -125,11 +125,25 @@ export default function Arena({...props}) {
                                     project={p}
                                     projects={projects}
                                     setProjects={setProjects}
+                                    category={props.category}
+                                    setCategory={props.setCategory}
                                 />
                             </li>
                         ))
                         :
-                        <></>
+                        // if props.category is none of the above, we can assume that a user has navigated to "Projects" and has clicked on a particular project to see all of that project's tasks
+                        tasks.filter(t => {
+                            if (t.project === props.category) return t;
+                        }).map(t => (
+                            <li key={t.id}>
+                                <Task
+                                    task={t}
+                                    editTask={editTask}
+                                    deleteTask={deleteTask}
+                                    projects={projects}
+                                />
+                            </li>
+                        ))
                     }
                 </ul>
             </div>
@@ -139,6 +153,7 @@ export default function Arena({...props}) {
                 ?
                 <NewTask
                     task={props.task}
+                    tasks={tasks}
                     setTask={props.setTask}
                     addTask={addTask}
                     projects={projects}

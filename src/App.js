@@ -36,6 +36,7 @@ function App() {
         task={task}
         setTask={setTask}
         category={category}
+        setCategory={setCategory}
       />
     </div>
   );

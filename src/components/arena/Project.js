@@ -2,7 +2,7 @@ export default function Project({...props}) {
     return (
         <div 
             className="project"
-            onClick={() => {}}>
+            onClick={(e) => { props.setCategory(props.project.title);}}>
                 <span>
                     {props.project.title}
                 </span>
