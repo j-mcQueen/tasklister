@@ -16,6 +16,9 @@ export default function Arena({...props}) {
     useEffect(() => {
         const taskItems = JSON.parse(localStorage.getItem("Tasks"));
         loadTasks(taskItems);
+
+        const projectItems = JSON.parse(localStorage.getItem("Projects"));
+        if (projectItems) setProjects(projectItems);
     }, []); // empty array indicates to React to only run this code when the component loads since it does not use props or state
 
     const loadTasks = (obj) => {

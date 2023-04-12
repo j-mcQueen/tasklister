@@ -22,6 +22,14 @@ export default function NewProject({...props}) {
                             type="submit"
                             onClick={() => {
                                 if (projectTitle !== "") {
+                                    const nextProjects = [...props.projects,
+                                        { 
+                                        id: uuidv4(), 
+                                        title: projectTitle,
+                                        }
+                                    ];
+                                    localStorage.setItem("Projects", JSON.stringify(nextProjects));
+
                                     props.setProjects([
                                         ...props.projects,
                                         { id: uuidv4(), title: projectTitle }
