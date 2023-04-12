@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function NewTask({...props}) {
     const [taskTitle, setTaskTitle] = useState("");
@@ -83,6 +84,18 @@ export default function NewTask({...props}) {
                         type="submit"
                         onClick={() => {
                             if (taskTitle !== "" && taskProject !== "" && taskDate !== "" && taskPrio !== "") {
+                                // Ensures localStorage is updated with most recent version of tasks array. Omitting this would lead to a bug as described here: https://www.joshwcomeau.com/react/common-beginner-mistakes/#accessing-state-after-changing-it-5 
+                                const nextTasks = [...props.tasks,
+                                    { 
+                                    id: uuidv4(), 
+                                    title: taskTitle, 
+                                    project: taskProject, 
+                                    date: taskDate, 
+                                    prio: taskPrio
+                                    }
+                                ];
+                                localStorage.setItem("Tasks", JSON.stringify(nextTasks));
+
                                 props.addTask({taskTitle, taskProject, taskDate, taskPrio});
                                 props.setTask(!props.task);
                             }

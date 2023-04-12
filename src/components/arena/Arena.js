@@ -1,6 +1,7 @@
 import "./arena.css";
 import { useReducer, useState } from "react";
 import { taskReducer } from "./taskReducer";
+import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import Task from "./Task";
 import NewTask from "./NewTask";
@@ -11,6 +12,18 @@ export default function Arena({...props}) {
     const [tasks, dispatch] = useReducer(taskReducer, []);
     const [projectModal, setProjectModal] = useState(false);
     const [projects, setProjects] = useState([{ id: uuidv4(), title: "Unassigned"}]);
+    
+    useEffect(() => {
+        const taskItems = JSON.parse(localStorage.getItem("Tasks"));
+        loadTasks(taskItems);
+    }, []); // empty array indicates to React to only run this code when the component loads since it does not use props or state
+
+    const loadTasks = (obj) => {
+        dispatch({
+            type: "loaded",
+            obj,
+        })
+    }
 
     const addTask = ({...props}) => {
         dispatch({
