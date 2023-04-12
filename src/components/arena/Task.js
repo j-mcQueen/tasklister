@@ -2,7 +2,24 @@ import { useState } from "react"
 
 export default function Task({task, editTask, deleteTask, projects}) {
     const [editActive, setEditActive] = useState(false);
+    const [inputTitle, setInputTitle] = useState(task.title);
+    const [inputProject, setInputProject] = useState(task.project);
+    const [inputDate, setInputDate] = useState(task.date);
     let taskContent;
+
+    const updateStorageTask = (task) => {
+        const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
+        for (let key of parsedTasks) {
+            if (key.id === task.id) {
+                key["title"] = inputTitle;
+                key["project"] = inputProject;
+                key["date"] = inputDate;
+                break;
+            }
+        }
+        localStorage.setItem("Tasks", JSON.stringify(parsedTasks));
+    }
+
     if (editActive) {
         taskContent = (
             <>
@@ -13,6 +30,7 @@ export default function Task({task, editTask, deleteTask, projects}) {
                             type="text"
                             value={task.title}
                             onChange={e => {
+                                setInputTitle(e.target.value);
                                 editTask({
                                     ...task, 
                                     title: e.target.value
@@ -27,6 +45,7 @@ export default function Task({task, editTask, deleteTask, projects}) {
                             type="text"
                             value={task.project}
                             onChange={e => {
+                                setInputProject(e.target.value);
                                 editTask({
                                     ...task, 
                                     project: e.target.value
@@ -49,6 +68,7 @@ export default function Task({task, editTask, deleteTask, projects}) {
                             type="date"
                             value={task.date}
                             onChange={e => {
+                                setInputDate(e.target.value);
                                 editTask({
                                     ...task,
                                     date: e.target.value
@@ -62,7 +82,11 @@ export default function Task({task, editTask, deleteTask, projects}) {
                     <div>
                         <svg 
                             className="done icon"
-                            onClick={() =>  setEditActive(false) }
+                            onClick={() =>  {
+                                // call localStorage updater here
+                                updateStorageTask(task);
+                                setEditActive(false);
+                            }}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16">
                                 <path 
