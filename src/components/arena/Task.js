@@ -7,6 +7,18 @@ export default function Task({task, editTask, deleteTask, projects}) {
     const [inputDate, setInputDate] = useState(task.date);
     let taskContent;
 
+    const deleteStorageTask = (task) => {
+        const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
+        for (let key of parsedTasks) {
+            if (key.id === task.id) {
+                    const index = parsedTasks.indexOf(key);
+                    parsedTasks.splice(index, 1);
+                break;
+            }
+        }
+        localStorage.setItem("Tasks", JSON.stringify(parsedTasks));
+    }
+
     const updateStorageTask = (task) => {
         const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
         for (let key of parsedTasks) {
@@ -154,7 +166,10 @@ export default function Task({task, editTask, deleteTask, projects}) {
                     <div>
                         <svg 
                             className="done icon"
-                            onClick={() => { deleteTask(task.id) }}
+                            onClick={() => {
+                                deleteStorageTask(task);
+                                deleteTask(task.id) 
+                            }}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16">
                                 <path 
