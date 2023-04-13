@@ -193,4 +193,7 @@ button {
 
 .edit {
   color: #6196ff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

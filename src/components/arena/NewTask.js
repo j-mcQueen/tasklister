@@ -85,18 +85,18 @@ export default function NewTask({...props}) {
                         onClick={() => {
                             if (taskTitle !== "" && taskProject !== "" && taskDate !== "" && taskPrio !== "") {
                                 // Ensures localStorage is updated with most recent version of tasks array. Omitting this would lead to a bug as described here: https://www.joshwcomeau.com/react/common-beginner-mistakes/#accessing-state-after-changing-it-5 
+                                const uniqueId = uuidv4();
                                 const nextTasks = [...props.tasks,
                                     { 
-                                    id: uuidv4(), 
+                                    id: uniqueId, 
                                     title: taskTitle, 
                                     project: taskProject, 
                                     date: taskDate, 
                                     prio: taskPrio
                                     }
                                 ];
+                                props.addTask({ uniqueId, taskTitle, taskProject, taskDate, taskPrio});
                                 localStorage.setItem("Tasks", JSON.stringify(nextTasks));
-
-                                props.addTask({taskTitle, taskProject, taskDate, taskPrio});
                                 props.setTask(!props.task);
                             }
                         }}

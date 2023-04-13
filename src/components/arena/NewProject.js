@@ -28,12 +28,9 @@ export default function NewProject({...props}) {
                                         title: projectTitle,
                                         }
                                     ];
-                                    localStorage.setItem("Projects", JSON.stringify(nextProjects));
 
-                                    props.setProjects([
-                                        ...props.projects,
-                                        { id: uuidv4(), title: projectTitle }
-                                    ]);
+                                    props.setProjects(nextProjects);
+                                    localStorage.setItem("Projects", JSON.stringify(nextProjects));
                                     props.setProjectModal(!props.projectModal)
                                 }
                             }}

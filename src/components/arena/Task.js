@@ -9,14 +9,8 @@ export default function Task({task, editTask, deleteTask, projects}) {
 
     const deleteStorageTask = (task) => {
         const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
-        for (let key of parsedTasks) {
-            if (key.id === task.id) {
-                    const index = parsedTasks.indexOf(key);
-                    parsedTasks.splice(index, 1);
-                break;
-            }
-        }
-        localStorage.setItem("Tasks", JSON.stringify(parsedTasks));
+        const filtered = parsedTasks.filter(key => key.id !== task.id);
+        localStorage.setItem("Tasks", JSON.stringify(filtered));
     }
 
     const updateStorageTask = (task) => {

@@ -1,8 +1,14 @@
 export default function Project({...props}) {
+    const deleteStorageProject = (p) => {
+        const parsedProjects = JSON.parse(localStorage.getItem("Projects"));
+        const filtered = parsedProjects.filter(key => key.id !== p.id);
+        localStorage.setItem("Projects", JSON.stringify(filtered));
+    }
+
     return (
         <div 
             className="project"
-            onClick={(e) => { props.setCategory(props.project.title);}}>
+            onClick={() => { props.setCategory(props.project.title);}}>
                 <span>
                     {props.project.title}
                 </span>
@@ -15,6 +21,7 @@ export default function Project({...props}) {
                             <svg 
                                 className="icon p-icon" 
                                 onClick={() => {
+                                    deleteStorageProject(props.project);
                                     props.setProjects(
                                         props.projects.filter(item => item.id !== props.project.id)
                                     )

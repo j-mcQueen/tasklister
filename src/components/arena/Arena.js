@@ -15,7 +15,7 @@ export default function Arena({...props}) {
     
     useEffect(() => {
         const taskItems = JSON.parse(localStorage.getItem("Tasks"));
-        loadTasks(taskItems);
+        if (taskItems) loadTasks(taskItems);
 
         const projectItems = JSON.parse(localStorage.getItem("Projects"));
         if (projectItems) setProjects(projectItems);
@@ -31,7 +31,7 @@ export default function Arena({...props}) {
     const addTask = ({...props}) => {
         dispatch({
             type: "added",
-            id: uuidv4(),
+            id: props.uniqueId,
             title: props.taskTitle,
             project: props.taskProject,
             date: props.taskDate,
@@ -46,10 +46,10 @@ export default function Arena({...props}) {
         });
     }
 
-    const deleteTask = (index) => {
+    const deleteTask = (key) => {
         dispatch({
             type: "deleted",
-            id: index,
+            id: key,
         });
     }
 
