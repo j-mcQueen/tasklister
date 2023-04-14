@@ -4,47 +4,51 @@ export default function NewProject({...props}) {
     const [projectTitle, setProjectTitle] = useState("");
     return (
         <div className="modal">
-            <form className="add-task">
-                <div className="fields">
-                    <fieldset>
-                        <label htmlFor="">Project Title</label>
-                        <input 
-                            required
-                            type="text"
-                            id=""
-                            onChange={e => setProjectTitle(e.target.value)}
-                        />
-                    </fieldset>
-                </div>
-                <div className="project-btns">
-                        <button
-                            className="green"
-                            type="submit"
-                            onClick={() => {
-                                if (projectTitle !== "") {
-                                    const nextProjects = [...props.projects,
-                                        { 
-                                        id: uuidv4(), 
-                                        title: projectTitle,
-                                        }
-                                    ];
+            <div className="modal-msg">
+                <h2>Organising made easy</h2>
+                <p>Need a way to categorise your tasks? Let’s do this.</p>
+            </div>
 
-                                    props.setProjects(nextProjects);
-                                    localStorage.setItem("Projects", JSON.stringify(nextProjects));
-                                    props.setProjectModal(!props.projectModal)
-                                }
-                            }}
-                        >
-                            Confirm
-                        </button>
+            <form>
+                <fieldset>
+                    <label htmlFor="project-title">Project Title <span>*</span></label>
+                    <input 
+                        required
+                        type="text"
+                        id="project-title"
+                        onChange={e => setProjectTitle(e.target.value)}
+                    />
+                </fieldset>
 
-                        <button
-                            className="red"
-                            type="button" 
-                            onClick={() => props.setProjectModal(!props.projectModal)}
-                        >
-                            Cancel
-                        </button>
+                <div className="modal-btns">
+                    <button
+                        className="green"
+                        type="submit"
+                        onClick={() => {
+                            if (projectTitle !== "") {
+                                const nextProjects = [...props.projects,
+                                    { 
+                                    id: uuidv4(), 
+                                    title: projectTitle,
+                                    }
+                                ];
+
+                                props.setProjects(nextProjects);
+                                localStorage.setItem("Projects", JSON.stringify(nextProjects));
+                                props.setProjectModal(!props.projectModal)
+                            }
+                        }}
+                    >
+                        Confirm
+                    </button>
+
+                    <button
+                        className="red"
+                        type="button" 
+                        onClick={() => props.setProjectModal(!props.projectModal)}
+                    >
+                        Cancel
+                    </button>
                 </div>
             </form>
         </div>

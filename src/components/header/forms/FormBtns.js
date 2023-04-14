@@ -1,6 +1,6 @@
 export default function FormBtns({isActive, setIsActive}) {
     return (
-        <div id="btns">
+        <div className="modal-btns">
                 <button 
                     type="submit"
                     className="blue"

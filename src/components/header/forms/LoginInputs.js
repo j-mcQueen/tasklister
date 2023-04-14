@@ -4,14 +4,14 @@ export default function LoginInputs({isActive, setIsActive}) {
         <form>
             <fieldset>
                 <div>
-                    <label htmlFor="uname">Username</label>
+                    <label htmlFor="uname">Username *</label>
                     <input type="text" id="uname" required/>
                 </div>
             </fieldset>
 
             <fieldset>
                 <div>
-                    <label htmlFor="pwd">Password</label>
+                    <label htmlFor="pwd">Password *</label>
                     <input type="password" id="pwd" required/>
                 </div>
             </fieldset>

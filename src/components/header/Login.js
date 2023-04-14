@@ -7,7 +7,9 @@ export default function Login({isActive, setIsActive}) {
                 disabled={isActive}
                 onClick={() => setIsActive(!isActive)}
             >
-                Login
+                <span className="material-symbols-outlined">
+                    login
+                </span>
             </button>
         </div>
     )

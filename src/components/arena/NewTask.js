@@ -8,82 +8,85 @@ export default function NewTask({...props}) {
     const [taskPrio, setTaskPrio] = useState("high");
     return (
         <div className="modal">
-            <form className="add-task">
-                <div className="fields">
-                    <fieldset>
-                        <div>
-                            <label htmlFor="task-title">Title</label>
-                            <input
-                                required
-                                type="text"
-                                id="task-title"
-                                onChange={e => {
-                                    setTaskTitle(e.target.value);
-                                }}
-                            />
-                        </div>
-                    </fieldset>
+            <div className="modal-msg">
+                <h2>Productivity, enhanced</h2>
+                <p>Got stuff to do today? Let’s help you keep track.</p>
+            </div>
+            
+            <form>
+                <fieldset>
+                    <div>
+                        <label htmlFor="task-title">Title <span>*</span></label>
+                        <input
+                            required
+                            type="text"
+                            id="task-title"
+                            onChange={e => {
+                                setTaskTitle(e.target.value);
+                            }}
+                        />
+                    </div>
+                </fieldset>
 
-                    <fieldset>
-                        <div>
-                            <label htmlFor="task-project">Assign To</label>
-                            <select 
-                                name="task-project" 
-                                id="task-project"
-                                onChange={e => {
-                                    setTaskProject(e.target.value);
-                                }}
-                                >
-                                {
-                                    props.projects.map(project => (
-                                        <option key={project.id} value={project.title}>
-                                            {project.title}
-                                        </option>
-                                    ))
-                                }
-                            </select>
-                        </div>
-                    </fieldset>
+                <fieldset>
+                    <div>
+                        <label htmlFor="task-project">Assign To</label>
+                        <select 
+                            name="task-project" 
+                            id="task-project"
+                            onChange={e => {
+                                setTaskProject(e.target.value);
+                            }}
+                            >
+                            {
+                                props.projects.map(project => (
+                                    <option key={project.id} value={project.title}>
+                                        {project.title}
+                                    </option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                </fieldset>
 
-                    <fieldset>
-                        <div>
-                            <label htmlFor="due">Due Date</label>
-                            <input
-                                required
-                                type="date"
-                                id="due"
-                                onChange={e => 
-                                    setTaskDate(e.target.value)
-                                }
-                            />
-                        </div>
-                    </fieldset>
+                <fieldset>
+                    <div>
+                        <label htmlFor="due">Due Date <span>*</span></label>
+                        <input
+                            required
+                            type="date"
+                            id="due"
+                            onChange={e => 
+                                setTaskDate(e.target.value)
+                            }
+                        />
+                    </div>
+                </fieldset>
 
-                    <fieldset>
-                        <div>
-                            <label htmlFor="prio">Priority</label>
-                            <select 
-                                name="prio"
-                                id="prio"
-                                value={taskPrio}
-                                onChange={e => 
-                                    setTaskPrio(e.target.value)
-                                }
-                                >
-                                <option value="high">High</option>
-                                <option value="medium">Medium</option>
-                                <option value="low">Low</option>
-                            </select>
-                        </div>
-                    </fieldset>
-                </div>
+                <fieldset>
+                    <div>
+                        <label htmlFor="prio">Priority</label>
+                        <select 
+                            name="prio"
+                            id="prio"
+                            value={taskPrio}
+                            onChange={e => 
+                                setTaskPrio(e.target.value)
+                            }
+                            >
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                </fieldset>
 
-                <div className="project-btns">
+                <div className="modal-btns">
                     <button
                         className="green"
                         type="submit"
                         onClick={() => {
-                            if (taskTitle !== "" && taskProject !== "" && taskDate !== "" && taskPrio !== "") {
+                            if (taskTitle !== "" && taskDate !== "") {
                                 // Ensures localStorage is updated with most recent version of tasks array. Omitting this would lead to a bug as described here: https://www.joshwcomeau.com/react/common-beginner-mistakes/#accessing-state-after-changing-it-5 
                                 const uniqueId = uuidv4();
                                 const nextTasks = [...props.tasks,

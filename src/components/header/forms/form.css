@@ -1,63 +1,10 @@
-#modal {
-    top: 25%;
-}
-
-#modal span:hover {
-    cursor: pointer;
-}
-
-.hoverable {
-    transition: 0.3s ease;
-}
-
-.hoverable:hover {
-    color: #FFDB5A;
-}
-
-#tabs {
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-}
-
-#tabs div {
+.login-modal-switch, .signup-modal-switch {
     text-align: center;
-    width: 100%;
-    padding: 20px;
+    margin-top: 20px;
+    color: #696969;
 }
 
-#tabs div:hover {
-    cursor: pointer;
-}
-
-#tabs div:first-child {
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-#modal form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    gap: 20px;
-}
-
-#btns {
-    display: flex;
-    justify-content: center;
-}
-
-#btns button {
-    color: var(--wht);
-    width: 100%;
-    padding: 20px;
-}
-
-#btns button:nth-child(1) {
-    border-radius: 0 0 0 10px;
-}
-
-#btns button:nth-child(2) {
-    border-radius: 0 0 10px 0;
+.form-highlight {
+    background-color: inherit;
+    color: var(--trt);
 }

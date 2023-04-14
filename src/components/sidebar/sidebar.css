@@ -1,3 +1,33 @@
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#categories {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+#categories button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--wht);
+    box-shadow: 0 0 4px 0 rgba(20, 20, 20, 0.25) inset;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+#categories button.active {
+    box-shadow: 0 0 4px 0 rgba(20, 20, 20, 0.8) inset;
+    background-color: var(--trt);
+    color: var(--wht);
+}
+
 @media only screen and (min-width: 1081px) {
     .category:hover {
         cursor: pointer;
@@ -8,51 +38,29 @@
         justify-content: center;
     }
 
-    #categories ul {
+    #categories button {
         gap: 10px;
-        width: 25%;
     }
 
-    #categories ul li {
+    #categories button {
         border-radius: 10px;
-        padding: 10px;
+        padding: 15px 20px;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1080px) {
-
-}
-
-@media only screen and (min-width: 300px) and (max-width: 767px) {
-    #categories ul li {
-        padding: 8% 0;
+    #categories button {
+        padding: 5% 0;
+        gap: 10px;
     }
 }
 
-#sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+    #categories button {
+        padding: 8% 0;
+    }
 
-#categories ul {
-    display: flex;
-    justify-content: space-around;
-}
-
-#categories ul .active {
-    background-color: var(--trt);
-    color: var(--wht);
-}
-
-#categories ul li {
-    background-color: var(--wht);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    width: 100%;
-    text-align: center;
-}
-
-#projects {
-    padding: 20px 0 0 0;
+    .btn-text {
+        display: none;
+    }
 }

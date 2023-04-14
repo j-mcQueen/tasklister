@@ -1,53 +1,12 @@
-@media only screen and (min-width: 1081px) {
-    #arena h1 {
-        margin-top: 20px;
-    }
-
-    #task-list {
-        grid-template-columns: repeat(3, minmax(300px, 1fr));
-    }
-
-    .task-entry {
-        grid-template-columns: 90% 10%;
-    }
-
-    .add > .blue:hover {
-        transform: translateX(5px);
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1080px) {
-
-}
-
-@media only screen and (min-width: 300px) and (max-width: 767px) {
-    #task-list {
-        grid-template-columns: minmax(200px, 1fr);
-    }
-
-    .task-entry {
-        grid-template-columns: 4fr 1fr;
-    }
-
-    #arena h1 {
-        margin-top: 10%;
-    }
-
-    #arena {
-        padding-bottom: 20px;
-    }
-}
-
 #arena {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
 }
 
 #arena h1 {
-    color: var(--blk);
     font-size: 36px;
-    width: 100%;
     text-align: center;
 }
 
@@ -60,53 +19,18 @@
 }
 
 .add > .blue {
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: var(--wht);
-}
-
-#arena .modal {
-    top: 30%;
-}
-
-.add-task {
-    background-color: var(--wht); 
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-}
-
-.add-task > .fields {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 10px;
-    padding: 30px;
-}
-
-fieldset div {
-    width: 100%;
-}
-
-.project-btns {
-    display: flex;
-}
-
-.project-btns > button {
+    font-size: 16px;
+    padding: 15px 20px;
+    border-radius: 10px;
     color: var(--wht);
-    width: 100%;
-    padding: 20px;
-}
-
-.project-btns > button:nth-child(1) {
-    border-radius: 0 0 0 10px;
-}
-
-.project-btns > button:nth-child(2) {
-    border-radius: 0 0 10px 0;
+    box-shadow: 0 0 4px 0 rgba(20, 20, 20, 0.8) inset;
 }
 
 #tasks {
     width: 100%;
-    padding: 0 5%;
 }
 
 #task-list {
@@ -138,15 +62,6 @@ fieldset div {
 .task-prop:nth-child(1), .task-prop:nth-child(2) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 } 
-
-.add-task select {
-    border: 1px solid rgba(77, 136, 253, 0.5);
-    border-radius: 5px;
-    color: rgba(0, 0, 0, 0.25);
-    background-color: inherit;
-    height: 25px;
-    padding: 0 5px;
-}
 
 .task-icons {
     gap: 10px;
@@ -194,20 +109,98 @@ fieldset div {
     align-items: center;
     color: var(--wht);
     background-color: var(--trt);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 4px 0 rgba(20, 20, 20, 0.8) inset;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 20px;
+    min-height: 75px;
     transition: 0.3s ease;
-    height: 100%;
 }
 
-.project:hover {
-    backface-visibility: visible;
-    transform: scale(0.98);
-    cursor: pointer;
+.blue {
+    background-color: var(--trt);
 }
 
-.p-icon:hover {
-    background-color: var(--pri);
-    color: black;
+.red {
+    background-color: var(--red);
+}
+
+.green {
+    background-color: var(--grn);
+}
+
+.icon, .flag {
+    fill: currentColor;
+    width: 18px;
+    height: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.1s ease;
+}
+
+.done {
+    color:  var(--grn);
+}
+
+.edit {
+    color: var(--trt);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media only screen and (min-width: 1081px) {
+    #tasks {
+        margin-top: 2%;
+        padding: 0 10%;
+    }
+
+    #task-list {
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+    }
+
+    .task-entry {
+        grid-template-columns: 90% 10%;
+    }
+
+    .project:hover {
+        backface-visibility: visible;
+        transform: scale(0.98);
+        cursor: pointer;
+    }
+    
+    .p-icon:hover {
+        background-color: var(--pri);
+        color: black;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1080px) {
+    #arena h1 {
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    #tasks {
+        padding: 0 5%;
+    }
+
+    #task-list {
+        grid-template-columns: minmax(200px, 1fr);
+        gap: 10px;
+    }
+
+    .task-entry {
+        grid-template-columns: 4fr 1fr;
+    }
+
+    #arena {
+        padding-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+    #arena h1 {
+        margin-top: 10%;
+    }
 }

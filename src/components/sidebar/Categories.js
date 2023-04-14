@@ -1,35 +1,49 @@
 export default function Categories({category, setCategory}) {
     return (
-        <div id="categories">
-            <ul>
-                <li 
-                    className={category === "Inbox" ? "active category" : "category"}
-                    onClick={() => setCategory("Inbox")}
-                >
+        <nav id="categories">
+            <button
+                className={category === "Inbox" ? "active" : null}
+                onClick={() => setCategory("Inbox")}>
+                <span className="material-symbols-outlined">
+                    list_alt
+                </span>
+                <span className="btn-text">
                     Inbox
-                </li>
+                </span>
+            </button>
 
-                <li 
-                    className={category === "Today" ? "active category" : "category"}
-                    onClick={() => setCategory("Today")}
-                >
+            <button
+                className={category === "Today" ? "active" : null}
+                onClick={() => setCategory("Today")}>
+                <span className="material-symbols-outlined">
+                    today
+                </span>
+                <span className="btn-text">
                     Today
-                </li>
+                </span>
+            </button>
 
-                <li 
-                    className={category === "Week" ? "active category" : "category"}
-                    onClick={() => setCategory("Week")}
-                >
+            <button
+                className={category === "Week" ? "active" : null}
+                onClick={() => setCategory("Week")}>
+                <span className="material-symbols-outlined">
+                    date_range
+                </span>
+                <span className="btn-text">
                     Week
-                </li>
+                </span>
+            </button>
 
-                <li 
-                    className={category === "Projects" ? "active category" : "category"}
-                    onClick={() => setCategory("Projects")}
-                >
+            <button
+                className={category === "Projects" ? "active" : null}
+                onClick={() => setCategory("Projects")}>
+                <span className="material-symbols-outlined">
+                    apps
+                </span>
+                <span className="btn-text">
                     Projects
-                </li>
-            </ul>
-        </div>
+                </span>
+            </button>
+        </nav>
     )
 }

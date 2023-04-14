@@ -1,14 +1,30 @@
+#login > .blue {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: var(--wht);
+    border-radius: 25px;
+    padding: 10px 30px;
+    background-color: inherit;
+    box-shadow: 0 0 4px 0 rgba(20, 20, 20, 0.8) inset;
+}
+
+header p {
+    color: var(--wht);
+}
+
 @media only screen and (min-width: 1081px) {
     #brgr {
         display: none;
     }
-
-    #login > .blue:hover {
-        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.5);
-    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1080px) {
+
+}
+
+@media only screen and (max-width: 1080px) {
     #brgr {
         display: block;
         padding: 8px 10px;
@@ -17,34 +33,14 @@
 
     .bar {
         display: block;
+        background-color: var(--wht);
         width: 25px;
         height: 2px;
         margin: 6px 0;
         border-radius: 5px;
-        background-color: var(--blk);
     }
 }
 
 @media only screen and (max-width: 767px) {
-    #brgr {
-        display: block;
-        padding: 8px 10px;
-        border-radius: 8px;
-    }
 
-    .bar {
-        display: block;
-        width: 25px;
-        height: 2px;
-        margin: 6px 0;
-        border-radius: 5px;
-        background-color: var(--blk);
-    }
-}
-
-#login > .blue {
-    color: var(--wht);
-    border-radius: 8px;
-    padding: 10px 20px;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.25);
 }

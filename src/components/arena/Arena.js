@@ -69,6 +69,9 @@ export default function Arena({...props}) {
                         disabled={projectModal}
                         onClick={() => setProjectModal(!projectModal)}
                     >
+                        <span className="material-symbols-outlined">
+                            add_circle
+                        </span>
                         Add Project
                     </button>
                     :
@@ -78,6 +81,9 @@ export default function Arena({...props}) {
                         disabled={props.task}
                         onClick={() => props.setTask(!props.task)}
                     >
+                        <span className="material-symbols-outlined">
+                            add_circle
+                        </span>
                         Add Task
                     </button>
                 }
@@ -102,6 +108,7 @@ export default function Arena({...props}) {
                         props.category === "Today" 
                         ?
                         tasks.filter(t => {
+                            // TODO this is causing tasks from days past to be listed inside of Today
                             let today = new Date(t.date.replace(/-/g, '/'));
                             if (today - new Date() < 0) return t;
                         }).map(t => (
