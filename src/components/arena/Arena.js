@@ -45,11 +45,18 @@ export default function Arena({...props}) {
         });
     }
 
-    const deleteTask = (key) => {
+    const deleteTask = (val) => {
         dispatch({
             type: "deleted",
-            id: key,
+            id: val,
         });
+    }
+
+    const deleteProjectTasks = (p) => {
+        dispatch({
+            type: "deleted-project",
+            title: p,
+        })
     }
 
     return (
@@ -144,6 +151,7 @@ export default function Arena({...props}) {
                         projects.map(p => (
                             <li key={p.id}>
                                 <Project
+                                    deleteProjectTasks={deleteProjectTasks}
                                     project={p}
                                     projects={projects}
                                     setProjects={setProjects}

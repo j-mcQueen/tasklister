@@ -26,6 +26,9 @@ const taskReducer = (tasks, action) => {
         case "deleted": {
             return tasks.filter(item => item.id !== action.id);
         }
+        case "deleted-project": {
+            return tasks.filter(item => item.project !== action.title);
+        }
     }
 }
 

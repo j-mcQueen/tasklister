@@ -162,7 +162,7 @@ export default function Task({task, editTask, deleteTask, projects}) {
                             className="done icon"
                             onClick={() => {
                                 deleteStorageTask(task);
-                                deleteTask(task.id) 
+                                deleteTask(task.id);
                             }}
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16">
