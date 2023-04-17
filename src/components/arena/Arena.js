@@ -107,9 +107,9 @@ export default function Arena({...props}) {
                         props.category === "Today" 
                         ?
                         tasks.filter(t => {
-                            // TODO this is causing tasks from days past to be listed inside of Today
-                            let today = new Date(t.date.replace(/-/g, '/'));
-                            if (today - new Date() < 0) return t;
+                            const today = new Date();
+                            const tDate = new Date(t.date.replace(/-/g, '/'));
+                            if (today.getDate() === tDate.getDate()) return t;
                         }).map(t => (
                             <li key={t.id}>
                                 <Task
@@ -125,9 +125,9 @@ export default function Arena({...props}) {
                         ?
                         tasks.filter(t => {
                             const today = new Date();
-                            const tDate = new Date(t.date);
-                            const nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
-                            if (nextWeek - tDate > 0) return t;
+                            const tDate = new Date(t.date.replace(/-/g, "/")).getDate();
+                            const nextWeek = today.getDate() + 7;
+                            if (nextWeek - tDate <= 7 && nextWeek - tDate > 0) return t;
                         }).map(t => (
                             <li key={t.id}>
                                 <Task
