@@ -5,8 +5,8 @@ export default function NewProject({...props}) {
     return (
         <div className="modal">
             <div className="modal-msg">
-                <h2>Organising made easy</h2>
-                <p>Need a way to categorise your tasks? Let’s do this.</p>
+                <h2>Create a new project</h2>
+                <p>Group tasks together to stay organized.</p>
             </div>
 
             <form>

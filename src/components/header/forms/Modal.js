@@ -13,7 +13,7 @@ export default function Modal({isActive, setIsActive}) {
                 <>
                     <div className="modal-msg">
                         <h2>Welcome back!</h2>
-                        <p>Enter your information to see all your tasks waiting for you.</p>
+                        <p>Login below to see your todo list.</p>
                     </div>
 
                     <LoginInputs
@@ -35,8 +35,8 @@ export default function Modal({isActive, setIsActive}) {
                 : 
                 <>
                     <div className="modal-msg">
-                        <h2>All aboard!</h2>
-                        <p>Join thousands keeping on top of their productivity today.</p>
+                        <h2>Sign up for TaskLister</h2>
+                        <p>Enhance your productivity with tasks and projects.</p>
                     </div>
 
                     <SignUpInputs 

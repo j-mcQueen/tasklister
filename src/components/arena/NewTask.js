@@ -9,7 +9,7 @@ export default function NewTask({...props}) {
     return (
         <div className="modal">
             <div className="modal-msg">
-                <h2>Productivity, enhanced</h2>
+                <h2>Create a new task</h2>
                 <p>Got stuff to do today? Let’s help you keep track.</p>
             </div>
             
