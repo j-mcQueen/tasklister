@@ -9,10 +9,13 @@ function App() {
   const [isOpen, setIsOpen] = useState(isDesktop);
   const [isActive, setIsActive] = useState(false);
   const [task, setTask] = useState(false);
+  const [projectModal, setProjectModal] = useState(false);
   const [category, setCategory] = useState("Inbox");
 
   return (
     <div className="App">
+      <div className={isActive || task || projectModal ? "backdrop-active" : "backdrop"}></div>
+
       <Header
         isActive={isActive}
         setIsActive={setIsActive}
@@ -33,6 +36,8 @@ function App() {
       }
 
       <Arena
+        projectModal={projectModal}
+        setProjectModal={setProjectModal}
         task={task}
         setTask={setTask}
         category={category}

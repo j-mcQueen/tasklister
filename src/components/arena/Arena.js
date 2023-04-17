@@ -10,7 +10,6 @@ import NewProject from "./NewProject";
 
 export default function Arena({...props}) {
     const [tasks, dispatch] = useReducer(taskReducer, []);
-    const [projectModal, setProjectModal] = useState(false);
     const [projects, setProjects] = useState([{ id: uuidv4(), title: "Unassigned"}]);
     
     useEffect(() => {
@@ -66,8 +65,8 @@ export default function Arena({...props}) {
                     <button 
                         type="button"
                         className="blue"
-                        disabled={projectModal}
-                        onClick={() => setProjectModal(!projectModal)}
+                        disabled={props.projectModal}
+                        onClick={() => props.setProjectModal(!props.projectModal)}
                     >
                         <span className="material-symbols-outlined">
                             add_circle
@@ -182,11 +181,11 @@ export default function Arena({...props}) {
                     projects={projects}
                 />
                 :
-                projectModal
+                props.projectModal
                 ?
                 <NewProject
-                    projectModal={projectModal}
-                    setProjectModal={setProjectModal}
+                    projectModal={props.projectModal}
+                    setProjectModal={props.setProjectModal}
                     projects={projects}
                     setProjects={setProjects}
                 />

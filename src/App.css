@@ -40,16 +40,33 @@ input, select {
   width: 100%;
 }
 
+.backdrop {
+  display: none;
+  background: var(--blk);
+  position: fixed;
+  opacity: 0%;
+  inset: 0;
+}
+
+.backdrop-active {
+  display: block;
+  background: var(--blk);
+  position: fixed;
+  inset: 0;
+  opacity: 40%;
+}
+
 /* modals */
 
 .modal {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--wht); 
+  background-color: var(--wht);
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   position: absolute;
+  animation: 0.5s ease 1 slidein;
 }
 
 .modal fieldset {
@@ -149,6 +166,18 @@ button {
   .icon:hover {
     background-color: var(--wht);
   }
+
+  @keyframes slidein {
+    from {
+      top: 0%;
+      opacity: 0%;
+    }
+
+    to {
+      top: 15%;
+      opacity: 100%;
+    } 
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1080px) {
@@ -177,6 +206,18 @@ button {
     padding: 10%;
     margin: 2%;
   }
+
+  @keyframes slidein {
+    from {
+      top: -30%;
+      opacity: 0%;
+    }
+
+    to {
+      top: 0%;
+      opacity: 100%;
+    } 
+}
 
   .modal form {
     gap: 10px;
