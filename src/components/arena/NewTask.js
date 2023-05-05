@@ -1,11 +1,32 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import supabase from "../../supabase/setup";
 
 export default function NewTask({...props}) {
     const [taskTitle, setTaskTitle] = useState("");
     const [taskProject, setTaskProject] = useState("Unassigned");
     const [taskDate, setTaskDate] = useState("");
     const [taskPrio, setTaskPrio] = useState("high");
+
+    const storeTask = async () => {
+        const {data, error} = await supabase
+            .from("tasks")
+            .insert([
+                {
+                    title: taskTitle,
+                    project: taskProject,
+                    date: taskDate,
+                    prio: taskPrio,
+                }
+            ])
+            .select()
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(data);
+        }
+    }
+    
     return (
         <div className="modal">
             <div className="modal-msg">
@@ -98,7 +119,15 @@ export default function NewTask({...props}) {
                                     prio: taskPrio
                                     }
                                 ];
-                                props.addTask({ uniqueId, taskTitle, taskProject, taskDate, taskPrio});
+
+                                storeTask();
+                                props.addTask({
+                                    id: uniqueId,
+                                    title: taskTitle,
+                                    project: taskProject,
+                                    date: taskDate,
+                                    prio: taskPrio
+                                });
                                 localStorage.setItem("Tasks", JSON.stringify(nextTasks));
                                 props.setTask(!props.task);
                             }

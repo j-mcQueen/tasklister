@@ -3,6 +3,7 @@ import { useReducer, useState } from "react";
 import { taskReducer } from "./taskReducer";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import supabase from "../../supabase/setup";
 import Task from "./Task";
 import NewTask from "./NewTask";
 import Project from "./Project";
@@ -11,30 +12,50 @@ import NewProject from "./NewProject";
 export default function Arena({...props}) {
     const [tasks, dispatch] = useReducer(taskReducer, []);
     const [projects, setProjects] = useState([{ id: uuidv4(), title: "Unassigned"}]);
-    
+
     useEffect(() => {
-        const taskItems = JSON.parse(localStorage.getItem("Tasks"));
-        if (taskItems) loadTasks(taskItems);
+        const fetchTasks = async () => {
+            const { data, error } = await supabase
+                .from("tasks")
+                .select()
+                if (error) {
+                    alert(error)
+                }
+                if (data) {
+                    for (let key of data) {
+                        addTask({
+                            id: key.id,
+                            title: key.title,
+                            project: key.project,
+                            date: key.date,
+                            prio: key.prio,
+                        })
+                    }
+                }
+        }
+        fetchTasks();
+        // const taskItems = JSON.parse(localStorage.getItem("Tasks"));
+        // if (taskItems) loadTasks(taskItems);
 
-        const projectItems = JSON.parse(localStorage.getItem("Projects"));
-        if (projectItems) setProjects(projectItems);
-    }, []); // empty array indicates to React to only run this code when the component loads since it does not use props or state
+        // const projectItems = JSON.parse(localStorage.getItem("Projects"));
+        // if (projectItems) setProjects(projectItems);
+    }, []);
 
-    const loadTasks = (obj) => {
-        dispatch({
-            type: "loaded",
-            obj,
-        })
-    }
+    // const loadTasks = (obj) => {
+    //     dispatch({
+    //         type: "loaded",
+    //         obj,
+    //     })
+    // }
 
     const addTask = ({...props}) => {
         dispatch({
             type: "added",
-            id: props.uniqueId,
-            title: props.taskTitle,
-            project: props.taskProject,
-            date: props.taskDate,
-            prio: props.taskPrio,
+            id: props.id,
+            title: props.title,
+            project: props.project,
+            date: props.date,
+            prio: props.prio,
         });
     }
 

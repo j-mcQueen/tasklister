@@ -1,11 +1,11 @@
 /* eslint-disable default-case */
 const taskReducer = (tasks, action) => {
     switch (action.type) {
-        case "loaded": {
-            return [
-                ...action.obj
-            ]
-        }
+        // case "loaded": {
+        //     return [
+        //         ...action.obj
+        //     ]
+        // }
         case "added": {
             return [
                 ...tasks,

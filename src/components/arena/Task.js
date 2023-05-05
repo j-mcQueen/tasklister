@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 export default function Task({task, editTask, deleteTask, projects}) {
     const [editActive, setEditActive] = useState(false);
