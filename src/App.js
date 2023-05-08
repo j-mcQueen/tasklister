@@ -1,7 +1,7 @@
-import Header from './components/header/Header';
-import Sidebar from './components/sidebar/Sidebar';
+import Header from "./components/header/Header";
+import Sidebar from "./components/sidebar/Sidebar";
 import Arena from "./components/arena/Arena";
-import './App.css';
+import "./App.css";
 import { useState } from "react";
 
 function App() {
@@ -14,7 +14,11 @@ function App() {
 
   return (
     <div className="App">
-      <div className={isActive || task || projectModal ? "backdrop-active" : "backdrop"}></div>
+      <div
+        className={
+          isActive || task || projectModal ? "backdrop-active" : "backdrop"
+        }
+      ></div>
 
       <Header
         isActive={isActive}
@@ -23,16 +27,18 @@ function App() {
         setIsOpen={setIsOpen}
       />
 
-      { // mobile/ tablet only
-        isOpen 
-        ? 
-        <Sidebar
-          isActive={isActive}
-          setIsActive={setIsActive}
-          category={category}
-          setCategory={setCategory}
-        /> 
-        : <></> 
+      {
+        // mobile/ tablet only
+        isOpen ? (
+          <Sidebar
+            isActive={isActive}
+            setIsActive={setIsActive}
+            category={category}
+            setCategory={setCategory}
+          />
+        ) : (
+          <></>
+        )
       }
 
       <Arena
