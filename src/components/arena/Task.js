@@ -1,4 +1,5 @@
 import { useState } from "react";
+import supabase from "../../supabase/setup";
 
 export default function Task({ task, editTask, deleteTask, projects }) {
   const [editActive, setEditActive] = useState(false);
@@ -7,11 +8,11 @@ export default function Task({ task, editTask, deleteTask, projects }) {
   const [inputDate, setInputDate] = useState(task.date);
   let taskContent;
 
-  const deleteStorageTask = (task) => {
-    const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
-    const filtered = parsedTasks.filter((key) => key.id !== task.id);
-    localStorage.setItem("Tasks", JSON.stringify(filtered));
-  };
+  //   const deleteStorageTask = (task) => {
+  //     const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
+  //     const filtered = parsedTasks.filter((key) => key.id !== task.id);
+  //     localStorage.setItem("Tasks", JSON.stringify(filtered));
+  //   };
 
   const updateStorageTask = (task) => {
     const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
@@ -24,6 +25,19 @@ export default function Task({ task, editTask, deleteTask, projects }) {
       }
     }
     localStorage.setItem("Tasks", JSON.stringify(parsedTasks));
+  };
+
+  const handleDeleteTask = async (key) => {
+    const { data, error } = await supabase
+      .from("tasks")
+      .delete()
+      .eq("id", key)
+      .select();
+    if (error) {
+      alert(error);
+    } else if (data) {
+      deleteTask(data[0].id);
+    }
   };
 
   if (editActive) {
@@ -162,8 +176,8 @@ export default function Task({ task, editTask, deleteTask, projects }) {
             <svg
               className="done icon"
               onClick={() => {
-                deleteStorageTask(task);
-                deleteTask(task.id);
+                handleDeleteTask(task.id);
+                // deleteStorageTask(task);
               }}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"

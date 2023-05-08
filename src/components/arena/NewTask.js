@@ -22,8 +22,7 @@ export default function NewTask({ ...props }) {
       .select();
     if (error) {
       alert(error);
-    }
-    if (data) {
+    } else if (data) {
       props.addTask({
         id: data[0].id,
         title: data[0].title,
@@ -111,7 +110,7 @@ export default function NewTask({ ...props }) {
         <div className="modal-btns">
           <button
             className="green"
-            type="submit"
+            type="button"
             onClick={() => {
               if (taskTitle !== "" && taskDate !== "") {
                 storeTask();
