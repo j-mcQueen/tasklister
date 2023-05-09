@@ -14,18 +14,18 @@ export default function Task({ task, editTask, deleteTask, projects }) {
   //     localStorage.setItem("Tasks", JSON.stringify(filtered));
   //   };
 
-  const updateStorageTask = (task) => {
-    const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
-    for (let key of parsedTasks) {
-      if (key.id === task.id) {
-        key["title"] = inputTitle;
-        key["project"] = inputProject;
-        key["date"] = inputDate;
-        break;
-      }
-    }
-    localStorage.setItem("Tasks", JSON.stringify(parsedTasks));
-  };
+  // const updateStorageTask = (task) => {
+  //   const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
+  //   for (let key of parsedTasks) {
+  //     if (key.id === task.id) {
+  //       key["title"] = inputTitle;
+  //       key["project"] = inputProject;
+  //       key["date"] = inputDate;
+  //       break;
+  //     }
+  //   }
+  //   localStorage.setItem("Tasks", JSON.stringify(parsedTasks));
+  // };
 
   const handleDeleteTask = async (key) => {
     const { data, error } = await supabase
@@ -37,6 +37,20 @@ export default function Task({ task, editTask, deleteTask, projects }) {
       alert(error);
     } else if (data) {
       deleteTask(data[0].id);
+    }
+  };
+
+  const handleEditTask = async (key) => {
+    const { data, error } = await supabase
+      .from("tasks")
+      .update({ title: inputTitle, project: inputProject, date: inputDate })
+      .eq("id", key)
+      .select();
+
+    if (error) {
+      alert(error);
+    } else if (data) {
+      setEditActive(false);
     }
   };
 
@@ -101,9 +115,7 @@ export default function Task({ task, editTask, deleteTask, projects }) {
             <svg
               className="done icon"
               onClick={() => {
-                // call localStorage updater here
-                updateStorageTask(task);
-                setEditActive(false);
+                handleEditTask(task.id);
               }}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
