@@ -1,7 +1,34 @@
 import { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import supabase from "../../supabase/setup";
+
 export default function NewProject({ ...props }) {
   const [projectTitle, setProjectTitle] = useState("");
+
+  const storeProject = async () => {
+    const { data, error } = await supabase
+      .from("projects")
+      .insert([
+        {
+          title: projectTitle,
+        },
+      ])
+      .select();
+    if (error) {
+      console.log(error);
+    } else if (data) {
+      const nextProjects = [
+        ...props.projects,
+        {
+          id: data[0].id,
+          title: projectTitle,
+        },
+      ];
+
+      props.setProjects(nextProjects);
+      props.setProjectModal(!props.projectModal);
+    }
+  };
+
   return (
     <div className="modal">
       <div className="modal-msg">
@@ -25,20 +52,10 @@ export default function NewProject({ ...props }) {
         <div className="modal-btns">
           <button
             className="green"
-            type="submit"
+            type="button"
             onClick={() => {
               if (projectTitle !== "") {
-                const nextProjects = [
-                  ...props.projects,
-                  {
-                    id: uuidv4(),
-                    title: projectTitle,
-                  },
-                ];
-
-                props.setProjects(nextProjects);
-                localStorage.setItem("Projects", JSON.stringify(nextProjects));
-                props.setProjectModal(!props.projectModal);
+                storeProject();
               }
             }}
           >

@@ -2,7 +2,6 @@ import "./arena.css";
 import { useReducer, useState } from "react";
 import { taskReducer } from "./taskReducer";
 import { useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 import supabase from "../../supabase/setup";
 import Task from "./Task";
 import NewTask from "./NewTask";
@@ -11,17 +10,14 @@ import NewProject from "./NewProject";
 
 export default function Arena({ ...props }) {
   const [tasks, dispatch] = useReducer(taskReducer, []);
-  const [projects, setProjects] = useState([
-    { id: uuidv4(), title: "Unassigned" },
-  ]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     const fetchTasks = async () => {
       const { data, error } = await supabase.from("tasks").select();
       if (error) {
         alert(error);
-      }
-      if (data) {
+      } else if (data) {
         for (let key of data) {
           addTask({
             id: key.id,
@@ -34,19 +30,17 @@ export default function Arena({ ...props }) {
       }
     };
     fetchTasks();
-    // const taskItems = JSON.parse(localStorage.getItem("Tasks"));
-    // if (taskItems) loadTasks(taskItems);
 
-    // const projectItems = JSON.parse(localStorage.getItem("Projects"));
-    // if (projectItems) setProjects(projectItems);
+    const fetchProjects = async () => {
+      const { data, error } = await supabase.from("projects").select();
+      if (error) {
+        alert(error);
+      } else if (data) {
+        setProjects([...data]);
+      }
+    };
+    fetchProjects();
   }, []);
-
-  // const loadTasks = (obj) => {
-  //     dispatch({
-  //         type: "loaded",
-  //         obj,
-  //     })
-  // }
 
   const addTask = ({ ...props }) => {
     dispatch({

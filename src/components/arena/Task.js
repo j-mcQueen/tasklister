@@ -8,31 +8,13 @@ export default function Task({ task, editTask, deleteTask, projects }) {
   const [inputDate, setInputDate] = useState(task.date);
   let taskContent;
 
-  //   const deleteStorageTask = (task) => {
-  //     const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
-  //     const filtered = parsedTasks.filter((key) => key.id !== task.id);
-  //     localStorage.setItem("Tasks", JSON.stringify(filtered));
-  //   };
-
-  // const updateStorageTask = (task) => {
-  //   const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
-  //   for (let key of parsedTasks) {
-  //     if (key.id === task.id) {
-  //       key["title"] = inputTitle;
-  //       key["project"] = inputProject;
-  //       key["date"] = inputDate;
-  //       break;
-  //     }
-  //   }
-  //   localStorage.setItem("Tasks", JSON.stringify(parsedTasks));
-  // };
-
   const handleDeleteTask = async (key) => {
     const { data, error } = await supabase
       .from("tasks")
       .delete()
       .eq("id", key)
       .select();
+
     if (error) {
       alert(error);
     } else if (data) {

@@ -1,14 +1,19 @@
+import supabase from "../../supabase/setup";
+
 export default function Project({ ...props }) {
-  const deleteStorageItems = (p) => {
-    // delete all tasks in localStorage where task project key value = deleted project title
-    const parsedTasks = JSON.parse(localStorage.getItem("Tasks"));
-    const parsedProjects = JSON.parse(localStorage.getItem("Projects"));
+  const handleDeleteProject = async (key) => {
+    const { data, error } = await supabase
+      .from("projects")
+      .delete()
+      .eq("id", key)
+      .select();
 
-    const filteredTasks = parsedTasks.filter((key) => key.project !== p.title);
-    const filteredProjects = parsedProjects.filter((key) => key.id !== p.id);
-
-    localStorage.setItem("Tasks", JSON.stringify(filteredTasks));
-    localStorage.setItem("Projects", JSON.stringify(filteredProjects));
+    if (error) {
+      alert(error);
+    } else if (data) {
+      props.deleteProjectTasks(props.project.title);
+      props.setProjects(props.projects.filter((item) => item.id !== key));
+    }
   };
 
   return (
@@ -27,12 +32,7 @@ export default function Project({ ...props }) {
               className="icon p-icon"
               onClick={(e) => {
                 e.stopPropagation();
-                // changes need to be reflected in tasks array
-                props.deleteProjectTasks(props.project.title);
-                deleteStorageItems(props.project);
-                props.setProjects(
-                  props.projects.filter((item) => item.id !== props.project.id)
-                );
+                handleDeleteProject(props.project.id);
               }}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
