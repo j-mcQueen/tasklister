@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tasklister/static/css/main.d9a19090.css",
+    "main.js": "/tasklister/static/js/main.87ce5588.js",
+    "static/media/Cabin-Regular.ttf": "/tasklister/static/media/Cabin-Regular.2cfad1d43f55411abe0d.ttf",
+    "static/media/Cabin-Bold.ttf": "/tasklister/static/media/Cabin-Bold.6d8418d109bed523706d.ttf",
+    "index.html": "/tasklister/index.html",
+    "main.d9a19090.css.map": "/tasklister/static/css/main.d9a19090.css.map",
+    "main.87ce5588.js.map": "/tasklister/static/js/main.87ce5588.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9a19090.css",
+    "static/js/main.87ce5588.js"
+  ]
+}
