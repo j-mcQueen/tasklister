@@ -2,6 +2,7 @@ import Header from "../header/Header";
 import Sidebar from "../sidebar/Sidebar";
 import Arena from "../arena/Arena";
 import { useState } from "react";
+
 export default function Stage() {
   const isDesktop = window.matchMedia("(min-width: 1080px)").matches;
   const [isOpen, setIsOpen] = useState(isDesktop);

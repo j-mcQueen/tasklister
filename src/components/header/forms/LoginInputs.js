@@ -1,4 +1,3 @@
-import FormBtns from "./FormBtns";
 import { useState } from "react";
 import supabase from "../../../supabase/setup";
 export default function LoginInputs({ isActive, setIsActive }) {
@@ -61,8 +60,6 @@ export default function LoginInputs({ isActive, setIsActive }) {
           />
         </div>
       </fieldset>
-
-      <FormBtns isActive={isActive} setIsActive={setIsActive} />
     </form>
   );
 }

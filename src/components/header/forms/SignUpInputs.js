@@ -1,6 +1,5 @@
 import { useState } from "react";
 import supabase from "../../../supabase/setup";
-// import FormBtns from "./FormBtns";
 export default function SignUpInputs({ isActive, setIsActive }) {
   const [values, setValues] = useState({
     // uname: "",
