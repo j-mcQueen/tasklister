@@ -1,4 +1,5 @@
-import SignUp from "./SignUp";
+import supabase from "../../supabase/setup";
+import { Auth } from "@supabase/auth-ui-react";
 
 export default function Landing() {
   return (
@@ -6,7 +7,7 @@ export default function Landing() {
       <div className="hero">
         <h1>Tasklister: productivity, enhanced.</h1>
       </div>
-      <SignUp />
+      <Auth supabaseClient={supabase} providers={["google"]} />
     </div>
   );
 }
