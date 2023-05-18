@@ -1,5 +1,6 @@
 import supabase from "../../supabase/setup";
 import { Auth } from "@supabase/auth-ui-react";
+import "./landing.css";
 
 export default function Landing() {
   return (
