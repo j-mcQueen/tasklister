@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/tasklister" element={<Landing />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/stage" element={<Stage />} />
       </Routes>
     </Router>
