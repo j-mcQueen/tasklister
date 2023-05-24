@@ -1,6 +1,6 @@
 import "./header.css";
 import Burger from "./Burger";
-import Login from "./Login";
+import Logout from "./Logout";
 import Modal from "./forms/Modal";
 
 export default function Header({ isActive, setIsActive, isOpen, setIsOpen }) {
@@ -10,7 +10,7 @@ export default function Header({ isActive, setIsActive, isOpen, setIsOpen }) {
 
       <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      <Login isActive={isActive} setIsActive={setIsActive} />
+      <Logout />
 
       {isActive ? (
         <Modal isActive={isActive} setIsActive={setIsActive} />
