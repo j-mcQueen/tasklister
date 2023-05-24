@@ -5,7 +5,7 @@ export default function Login({ setForm }) {
   const [authError, setAuthError] = useState(false);
   const navigate = useNavigate();
   const errorString =
-    "Invalid username and password. Please check your credentials and try again.";
+    "Invalid username or password. Please check your credentials and try again.";
 
   const [values, setValues] = useState({
     email: "",

@@ -54,6 +54,17 @@ export default function SignUp({ setForm }) {
         if (error) {
           console.log(error);
         } else if (data) {
+          const { error } = await supabase
+            .from("projects")
+            .insert([
+              {
+                title: "Unassigned",
+                user_id: data.user.id,
+              },
+            ])
+            .select();
+          if (error) alert(error);
+
           setRegistered(true);
         }
       }
