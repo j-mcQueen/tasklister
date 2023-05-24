@@ -1,9 +1,11 @@
 import "./landing.css";
 import { useState } from "react";
-import { redirect } from "react-router-dom";
 import supabase from "../../supabase/setup";
+import Success from "./Success";
 
 export default function SignUp({ setForm }) {
+  const [registered, setRegistered] = useState(false);
+
   const [values, setValues] = useState({
     // uname: "",
     email: "",
@@ -38,10 +40,10 @@ export default function SignUp({ setForm }) {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     // final error check pre-submission
     for (let key in errors) {
       if (!errors[key]) {
-        e.preventDefault();
         return false;
       } else {
         const { data, error } = await supabase.auth.signUp({
@@ -52,26 +54,15 @@ export default function SignUp({ setForm }) {
         if (error) {
           console.log(error);
         } else if (data) {
-          // TODO
-          // create a state variable to hold request success
-          // prevent the default behaviour
-          // if request succeeds, update request success state
-          // conditionally render form:
-          // if request success state is false, render form
-          // else, render elements which tell the user to check their email
-          // user navigates to email and clicks link, thus taking them to the app
-          e.preventDefault();
-
-          supabase.auth.onAuthStateChange(async (e) => {
-            if (e === "SIGNED_IN") {
-              return redirect("/stage");
-            }
-          });
+          setRegistered(true);
         }
       }
     }
   };
-  return (
+
+  return registered ? (
+    <Success />
+  ) : (
     <>
       <form onSubmit={handleSubmit}>
         <fieldset>
