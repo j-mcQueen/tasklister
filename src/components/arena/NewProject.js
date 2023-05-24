@@ -5,11 +5,16 @@ export default function NewProject({ ...props }) {
   const [projectTitle, setProjectTitle] = useState("");
 
   const storeProject = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     const { data, error } = await supabase
       .from("projects")
       .insert([
         {
           title: projectTitle,
+          user_id: user.id,
         },
       ])
       .select();
@@ -21,6 +26,7 @@ export default function NewProject({ ...props }) {
         {
           id: data[0].id,
           title: projectTitle,
+          user_id: user.id,
         },
       ];
 

@@ -9,6 +9,10 @@ export default function NewTask({ ...props }) {
   const [taskPrio, setTaskPrio] = useState("high");
 
   const storeTask = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     const { data, error } = await supabase
       .from("tasks")
       .insert([
@@ -17,6 +21,7 @@ export default function NewTask({ ...props }) {
           project: taskProject,
           date: taskDate,
           prio: taskPrio,
+          user_id: user.id,
         },
       ])
       .select();
@@ -29,6 +34,7 @@ export default function NewTask({ ...props }) {
         project: data[0].project,
         date: data[0].date,
         prio: data[0].prio,
+        user_id: user.id,
       });
       props.setTask(!props.task);
     }

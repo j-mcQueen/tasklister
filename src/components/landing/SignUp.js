@@ -3,7 +3,7 @@ import { useState } from "react";
 import { redirect } from "react-router-dom";
 import supabase from "../../supabase/setup";
 
-export default function SignUp() {
+export default function SignUp({ setForm }) {
   const [values, setValues] = useState({
     // uname: "",
     email: "",
@@ -72,89 +72,80 @@ export default function SignUp() {
     }
   };
   return (
-    <div className="sign-up-container">
-      <div className="form">
-        <div>
-          <h2>Sign up for TaskLister</h2>
-          <p>Enhance your productivity with tasks and projects.</p>
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <div>
-              <label htmlFor="email">
-                Email <span>*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                onChange={(e) => handleChange(e)}
-                autoComplete="off"
-                required
-              />
-              {!errors.email ? (
-                <p className="error">{errorMessages.email}</p>
-              ) : null}
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <div>
-              <label htmlFor="pwd">
-                Password <span>*</span>
-              </label>
-              <input
-                type="password"
-                id="pwd"
-                minLength={8}
-                onChange={(e) => handleChange(e)}
-                autoComplete="off"
-                required
-              />
-              {!errors.pwd ? (
-                <p className="error">{errorMessages.pwd}</p>
-              ) : null}
-            </div>
-
-            <div>
-              <label htmlFor="cpwd">
-                Confirm <span>*</span>
-              </label>
-              <input
-                type="password"
-                id="cpwd"
-                onChange={(e) => handleChange(e)}
-                autoComplete="off"
-                required
-              />
-              {!errors.cpwd ? (
-                <p className="error">{errorMessages.cpwd}</p>
-              ) : null}
-            </div>
-          </fieldset>
-
-          <div className="modal-btns">
-            <button type="submit" className="blue">
-              Sign Up
-            </button>
+    <>
+      <form onSubmit={handleSubmit}>
+        <fieldset>
+          <div>
+            <label htmlFor="email">
+              Email <span>*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              onChange={(e) => handleChange(e)}
+              autoComplete="off"
+              required
+            />
+            {!errors.email ? (
+              <p className="error">{errorMessages.email}</p>
+            ) : null}
           </div>
-        </form>
+        </fieldset>
 
-        <div className="signup-modal-switch">
-          Already have an account?
-          <button
-            type="button"
-            tabIndex={0}
-            // onClick={() => {
-            //   setInputs(0);
-            // }}
-            className="form-highlight"
-          >
-            {" "}
-            Login
+        <fieldset>
+          <div>
+            <label htmlFor="pwd">
+              Password <span>*</span>
+            </label>
+            <input
+              type="password"
+              id="pwd"
+              minLength={8}
+              onChange={(e) => handleChange(e)}
+              autoComplete="off"
+              required
+            />
+            {!errors.pwd ? <p className="error">{errorMessages.pwd}</p> : null}
+          </div>
+
+          <div>
+            <label htmlFor="cpwd">
+              Confirm <span>*</span>
+            </label>
+            <input
+              type="password"
+              id="cpwd"
+              onChange={(e) => handleChange(e)}
+              autoComplete="off"
+              required
+            />
+            {!errors.cpwd ? (
+              <p className="error">{errorMessages.cpwd}</p>
+            ) : null}
+          </div>
+        </fieldset>
+
+        <div className="modal-btns">
+          <button type="submit" className="blue">
+            Sign Up
           </button>
         </div>
+      </form>
+
+      <div className="signup-modal-switch">
+        Already have an account?
+        <button
+          type="button"
+          tabIndex={0}
+          onClick={() => {
+            setForm("login");
+          }}
+          className="form-highlight"
+        >
+          {" "}
+          Login
+        </button>
       </div>
-    </div>
+    </>
   );
 }

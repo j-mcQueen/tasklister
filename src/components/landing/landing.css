@@ -1,10 +1,31 @@
 .landing {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
+    gap: 20px;
     height: 100vh;
+    padding: 5%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--trt);
+    height: 100%;
+    font-family: "Cabin";
+}
+
+.hero h1 {
+    font-size: 40px;
 }
 
 .sign-up-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }

@@ -1,11 +1,6 @@
 /* eslint-disable default-case */
 const taskReducer = (tasks, action) => {
   switch (action.type) {
-    // case "loaded": {
-    //     return [
-    //         ...action.obj
-    //     ]
-    // }
     case "added": {
       return [
         ...tasks,
@@ -15,6 +10,7 @@ const taskReducer = (tasks, action) => {
           project: action.project,
           date: action.date,
           prio: action.prio,
+          user_id: action.user_id,
         },
       ];
     }

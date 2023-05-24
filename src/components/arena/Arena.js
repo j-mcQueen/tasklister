@@ -14,7 +14,15 @@ export default function Arena({ ...props }) {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const { data, error } = await supabase.from("tasks").select();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      const { data, error } = await supabase
+        .from("tasks")
+        .select()
+        .eq("user_id", user.id);
+
       if (error) {
         alert(error);
       } else if (data) {
@@ -25,6 +33,7 @@ export default function Arena({ ...props }) {
             project: key.project,
             date: key.date,
             prio: key.prio,
+            user: user.id,
           });
         }
       }
