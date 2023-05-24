@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: var(--wht);
     background-color: var(--trt);
     height: 100%;
     font-family: "Cabin";
@@ -28,4 +29,40 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+}
+
+.success {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: var(--font);
+}
+
+.success-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-size: 32px;
+}
+
+.success-icon {
+    color: rgb(65, 210, 120);
+    fill: currentColor;
+    width: 8vw;
+}
+
+.success-message p {
+    font-size: 18px;
+    padding: 5px 0;
+}
+
+.success-message ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+    font-size: 18px;
+}
+
+.success-message ol li {
+    padding: 10px 0;
 }
