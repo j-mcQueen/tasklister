@@ -39,7 +39,7 @@ export default function Login({ setForm }) {
         <p>Login below to see your todo list.</p>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form className="landing-form" onSubmit={handleSubmit}>
         {authError ? (
           <p
             style={{

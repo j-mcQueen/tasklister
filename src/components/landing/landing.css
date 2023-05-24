@@ -79,12 +79,12 @@ font-size: 16px;
 color: #696969;
 }
 
-form {
+.landing-form {
     font-family: var(--font);
     min-width: 300px;
 }
 
-form label {
+.landing-form label {
     display: block;
     padding-bottom: 5px;
 }
@@ -94,23 +94,22 @@ form label {
     padding: 5px 0;
 }
 
-fieldset {
+.landing-form fieldset {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 10px 0;
 }
 
-fieldset span {
+.landing-form fieldset span {
     color: var(--red);
 }
-
-input {
+.landing-form input {
     appearance: none;
     box-sizing: border-box;
   }
   
-input, select {
+.landing-form input, .landing-form select {
     font-size: 16px;
     padding-left: 10px;
     background-color: inherit;
@@ -119,7 +118,7 @@ input, select {
     height: 40px;
 }
 
-input:focus {
+.landing-form input:focus {
     outline: none;
     border: 1px solid var(--trt);
 }

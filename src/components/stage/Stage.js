@@ -13,12 +13,7 @@ export default function Stage() {
 
   return (
     <div className="stage">
-      <Header
-        isActive={isActive}
-        setIsActive={setIsActive}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      />
+      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
 
       {
         // mobile/ tablet only

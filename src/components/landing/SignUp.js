@@ -80,7 +80,7 @@ export default function SignUp({ setForm }) {
         <p>Enhance your productivity with tasks and projects.</p>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form className="landing-form" onSubmit={handleSubmit}>
         <fieldset>
           <div>
             <label htmlFor="email">
