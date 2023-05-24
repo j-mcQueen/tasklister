@@ -75,6 +75,11 @@ export default function SignUp({ setForm }) {
     <Success />
   ) : (
     <>
+      <div className="welcome-msg">
+        <h2>Sign up</h2>
+        <p>Enhance your productivity with tasks and projects.</p>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <fieldset>
           <div>
@@ -86,6 +91,7 @@ export default function SignUp({ setForm }) {
               id="email"
               onChange={(e) => handleChange(e)}
               autoComplete="off"
+              placeholder="Enter your email"
               required
             />
             {!errors.email ? (
@@ -105,6 +111,7 @@ export default function SignUp({ setForm }) {
               minLength={8}
               onChange={(e) => handleChange(e)}
               autoComplete="off"
+              placeholder="Enter your password"
               required
             />
             {!errors.pwd ? <p className="error">{errorMessages.pwd}</p> : null}
@@ -119,6 +126,7 @@ export default function SignUp({ setForm }) {
               id="cpwd"
               onChange={(e) => handleChange(e)}
               autoComplete="off"
+              placeholder="Re-enter your password"
               required
             />
             {!errors.cpwd ? (
@@ -127,14 +135,14 @@ export default function SignUp({ setForm }) {
           </div>
         </fieldset>
 
-        <div className="modal-btns">
+        <div className="auth-btn">
           <button type="submit" className="blue">
             Sign Up
           </button>
         </div>
       </form>
 
-      <div className="signup-modal-switch">
+      <div className="switch">
         Already have an account?
         <button
           type="button"

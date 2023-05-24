@@ -7,6 +7,10 @@ export default function Auth() {
 
   return (
     <div className="sign-up-container">
+      <div className="dots">
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </div>
       {form === "login" ? (
         <Login setForm={setForm} />
       ) : (

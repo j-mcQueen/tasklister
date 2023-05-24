@@ -34,17 +34,35 @@ export default function Login({ setForm }) {
 
   return (
     <>
+      <div className="welcome-msg">
+        <h2>Welcome back!</h2>
+        <p>Login below to see your todo list.</p>
+      </div>
+
       <form onSubmit={handleSubmit}>
-        {authError ? <p style={{ color: "red" }}>{errorString}</p> : null}
+        {authError ? (
+          <p
+            style={{
+              color: "var(--red)",
+              textAlign: "center",
+              marginBottom: "10px",
+            }}
+          >
+            {errorString}
+          </p>
+        ) : null}
         <fieldset>
           <div>
-            <label htmlFor="uname">Email *</label>
+            <label htmlFor="uname">
+              Email <span>*</span>
+            </label>
             <input
               type="email"
               id="email"
               onChange={handleChange}
               minLength="3"
               autoComplete="off"
+              placeholder="Enter your email"
               required
             />
           </div>
@@ -52,26 +70,29 @@ export default function Login({ setForm }) {
 
         <fieldset>
           <div>
-            <label htmlFor="pwd">Password *</label>
+            <label htmlFor="pwd">
+              Password <span>*</span>
+            </label>
             <input
               type="password"
               id="pwd"
               onChange={handleChange}
               minLength={8}
               autoComplete="off"
+              placeholder="Enter your password"
               required
             />
           </div>
         </fieldset>
 
-        <div className="modal-btns">
+        <div className="auth-btn">
           <button type="submit" className="blue">
             Login
           </button>
         </div>
       </form>
 
-      <div className="login-modal-switch">
+      <div className="switch">
         Don't have an account?
         <button
           type="button"

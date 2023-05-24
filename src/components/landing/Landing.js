@@ -5,10 +5,8 @@ export default function Landing() {
   return (
     <div className="landing">
       <div className="hero">
-        <h1>
-          <div>TaskLister:</div>
-          <div>productivity, enhanced.</div>
-        </h1>
+        <h1>TaskLister</h1>
+        <p>Productivity, enhanced.</p>
       </div>
       <Auth />
     </div>
