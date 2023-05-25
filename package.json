@@ -2,7 +2,7 @@
   "name": "tasklister",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://j-mcqueen.github.io/tasklister",
+  "homepage": "https://tasklister.onrender.com",
   "dependencies": {
     "@supabase/auth-ui-react": "^0.4.2",
     "@supabase/supabase-js": "^2.21.0",
