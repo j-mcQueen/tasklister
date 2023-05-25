@@ -42,7 +42,7 @@ export default function NewProject({ ...props }) {
         <p>Group tasks together to stay organized.</p>
       </div>
 
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <fieldset>
           <label htmlFor="project-title">
             Project Title <span>*</span>
@@ -58,7 +58,7 @@ export default function NewProject({ ...props }) {
         <div className="modal-btns">
           <button
             className="green"
-            type="button"
+            type="submit"
             onClick={() => {
               if (projectTitle !== "") {
                 storeProject();

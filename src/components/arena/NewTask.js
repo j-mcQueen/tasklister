@@ -47,7 +47,7 @@ export default function NewTask({ ...props }) {
         <p>Got stuff to do today? Let’s help you keep track.</p>
       </div>
 
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <fieldset>
           <div>
             <label htmlFor="task-title">
@@ -128,7 +128,7 @@ export default function NewTask({ ...props }) {
 
           <button
             className="red"
-            type="button"
+            type="submit"
             onClick={() => props.setTask(!props.task)}
           >
             Cancel
