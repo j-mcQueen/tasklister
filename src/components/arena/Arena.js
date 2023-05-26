@@ -83,6 +83,31 @@ export default function Arena({ ...props }) {
     });
   };
 
+  const mapTask = (t) => {
+    return (
+      <li key={t.id}>
+        <Task
+          task={t}
+          editTask={editTask}
+          deleteTask={deleteTask}
+          projects={projects}
+        />
+      </li>
+    );
+  };
+
+  const filterTask = (t, category) => {
+    const today = new Date().getDate();
+    const tDate = new Date(t.date.replace(/-/g, "/")).getDate();
+
+    if (category === "Today") {
+      if (today === tDate) return t;
+    } else if (category === "Week") {
+      const nextWeek = today + 7;
+      if (nextWeek - tDate <= 7 && nextWeek - tDate > 0) return t;
+    }
+  };
+
   return (
     <div id="arena">
       <h1>{props.category}</h1>
@@ -114,51 +139,15 @@ export default function Arena({ ...props }) {
       <div id="tasks">
         <ul id="task-list">
           {props.category === "Inbox"
-            ? tasks.map((t) => (
-                <li key={t.id}>
-                  <Task
-                    task={t}
-                    editTask={editTask}
-                    deleteTask={deleteTask}
-                    projects={projects}
-                  />
-                </li>
-              ))
+            ? tasks.map((t) => mapTask(t))
             : props.category === "Today"
             ? tasks
-                .filter((t) => {
-                  const today = new Date();
-                  const tDate = new Date(t.date.replace(/-/g, "/"));
-                  if (today.getDate() === tDate.getDate()) return t;
-                })
-                .map((t) => (
-                  <li key={t.id}>
-                    <Task
-                      task={t}
-                      editTask={editTask}
-                      deleteTask={deleteTask}
-                      projects={projects}
-                    />
-                  </li>
-                ))
+                .filter((t) => filterTask(t, props.category))
+                .map((t) => mapTask(t))
             : props.category === "Week"
             ? tasks
-                .filter((t) => {
-                  const today = new Date();
-                  const tDate = new Date(t.date.replace(/-/g, "/")).getDate();
-                  const nextWeek = today.getDate() + 7;
-                  if (nextWeek - tDate <= 7 && nextWeek - tDate > 0) return t;
-                })
-                .map((t) => (
-                  <li key={t.id}>
-                    <Task
-                      task={t}
-                      editTask={editTask}
-                      deleteTask={deleteTask}
-                      projects={projects}
-                    />
-                  </li>
-                ))
+                .filter((t) => filterTask(t, props.category))
+                .map((t) => mapTask(t))
             : props.category === "Projects"
             ? projects.map((p) => (
                 <li key={p.id}>
@@ -177,16 +166,7 @@ export default function Arena({ ...props }) {
                 .filter((t) => {
                   if (t.project === props.category) return t;
                 })
-                .map((t) => (
-                  <li key={t.id}>
-                    <Task
-                      task={t}
-                      editTask={editTask}
-                      deleteTask={deleteTask}
-                      projects={projects}
-                    />
-                  </li>
-                ))}
+                .map((t) => mapTask(t))}
         </ul>
       </div>
 
